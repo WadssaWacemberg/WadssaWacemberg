@@ -76,6 +76,27 @@ Atualmente, estou cursando Ciência da Computação e Bootcamp Generation Brasil
 
 <details open> 
   <summary><h2>📊 Estatísticas e Atividade</h2></summary>
+
+  <p>
+  <img 
+    align="left" 
+    alt="GitHub Stats" 
+    height="200" 
+    style="padding-right: 10px;" 
+    src="https://github-readme-stats.vercel.app/api?username=WadssaWacemberg/&show_icons=true&theme=tokyonight&include_all_commits=true&locale=pt-br" 
+  />
+
+<img 
+      align="left" 
+      alt="GitHub Stats" 
+      height="200" 
+      src="https://github-readme-stats.vercel.app/api/top-langs/?username=WadssaWacemberg/&theme=tokyonight&layout=compact&custom_title=Tecnologias&langs_count=9" 
+  />
+
+</p>
+
+  
+  
   <p align="center">
     <img alt="Wadssa's Github Stats" src="https://github-readme-stats.vercel.app/api?username=WadssaWacemberg&show_icons=true&theme=react&hide_border=true&bg_color=1F222E&title_color=F85D7F&icon_color=F8D866" height="192px"/>
     <img alt="Wadssa's Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=WadssaWacemberg&langs_count=8&layout=compact&theme=react&hide_border=true&bg_color=1F222E&title_color=F85D7F&icon_color=F8D866" height="192px"/>
