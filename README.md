@@ -6,7 +6,7 @@ Atualmente, estou cursando Ciência da Computação e Bootcamp Generation Brasil
 
 <p align="center">
   <a href="https://github.com/WadssaWacemberg/readme-typing-svg">
-    <img src="https://readme-typing-svg.demolab.com/?lines=Wadssa%20Wacemberg%20Student;Full-stack%20WadssaWacemberg%20in%20Training;Wadssa%20Wacemberg;Always%20new%20things&font=Fira%20Code&center=true&width=440&height=45&color=f75c7e&vCenter=true&pause=1000&size=22" alt="Wadssa_Wacemberg" /></a>
+    <img src="https://readme-typing-svg.demolab.com/?lines=Wadssa%20Wacemberg%20Student;Full%20stack%20Wadssa%20Wacemberg%20in%20Training;Wadssa%20Wacemberg;Always%20new%20things&font=Fira%20Code&center=true&width=440&height=45&color=f75c7e&vCenter=true&pause=1000&size=22" alt="Wadssa_Wacemberg" /></a>
 </p>
 
 <p align="center">
