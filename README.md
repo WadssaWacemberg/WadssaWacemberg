@@ -2,7 +2,6 @@
 
 **`Desenvolvedora FullStack `**
 
-# Me chamo Wadssa Wacemberg
 Atualmente, estou cursando Ciência da Computação e Bootcamp Generation Brasil. Sou apaixonada por tecnologia.
 
 <p align="center">
@@ -15,18 +14,12 @@ Atualmente, estou cursando Ciência da Computação e Bootcamp Generation Brasil
     <img src="https://readme-typing-svg.demolab.com/?lines=Full-stack%20Developer%20in%20Training;Student%20at%20Generation%20Brasil;Computer%20Science%20Student;Always%20learning%20new%20things&font=Fira%20Code&center=true&width=440&height=45&color=f75c7e&vCenter=true&pause=1000&size=22" /></a>
 </p>
 
-<p align="center">
-  <a href="https://github.com/WadssaWacemberg">
-    <img src="https://readme-typing-svg.demolab.com/?lines=Desenvolvedora%20Full-Stack%20em%20Formação;Estudante%20de%20Ciência%20da%20Computação;Generation%20Brasil%20Bootcamp;Especialista%20em%20Sistemas%20TypeScript&font=Fira%20Code&center=true&width=500&height=45&color=f75c7e&vCenter=true&pause=1000&size=22" /></a>
-</p>
 
 <p align="center">
   <a href="https://www.linkedin.com/in/wadssa-wacemberg-556a7a366/"><img width="32px" alt="LinkedIn" title="LinkedIn" src="https://i.imgur.com/yRpa1dQ.png"/></a>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <a href="https://www.tiktok.com/@wadssa22"><img width="32px" alt="TikTok" title="TikTok" src="https://i.imgur.com/PpLeD3K.png"/></a>
 </p>
-
-<br/>
 
 <p align="center">
   <a href="https://github.com/WadssaWacemberg?tab=followers">
@@ -58,6 +51,7 @@ Atualmente, estou cursando Ciência da Computação e Bootcamp Generation Brasil
 
   <h3>👨‍💻 Linguagens</h3>
   <p>
+      <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white">
       <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-007ACC.svg?logo=typescript&logoColor=white">
       <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?logo=javascript&logoColor=black">
       <img alt="HTML" src="https://img.shields.io/badge/HTML-E34F26.svg?logo=html5&logoColor=white">
@@ -78,24 +72,15 @@ Atualmente, estou cursando Ciência da Computação e Bootcamp Generation Brasil
   <summary><h2>📊 Estatísticas e Atividade</h2></summary>
 
   <p>
-  <img 
-    align="left" 
-    alt="GitHub Stats" 
-    height="200" 
-    style="padding-right: 10px;" 
-    src="https://github-readme-stats.vercel.app/api?username=WadssaWacemberg/&show_icons=true&theme=tokyonight&include_all_commits=true&locale=pt-br" 
-  />
-
 <img 
       align="left" 
       alt="GitHub Stats" 
       height="200" 
-      src="https://github-readme-stats.vercel.app/api/top-langs/?username=WadssaWacemberg/&theme=tokyonight&layout=compact&custom_title=Tecnologias&langs_count=9" 
+      src="https://github-readme-stats.vercel.app/api/top-langs/?username=larissakich&theme=tokyonight&layout=compact&custom_title=Tecnologias&langs_count=9" 
   />
 
 </p>
-
-  
+<br/>
   
   <p align="center">
     <img alt="Wadssa's Github Stats" src="https://github-readme-stats.vercel.app/api?username=WadssaWacemberg&show_icons=true&theme=react&hide_border=true&bg_color=1F222E&title_color=F85D7F&icon_color=F8D866" height="192px"/>
