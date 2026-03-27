@@ -27,28 +27,6 @@ Atualmente, estou cursando Ciência da Computação e Bootcamp Generation Brasil
 </p>
 
 <br/>
-
-<details open> 
-  <summary><h2>🚀 Meus Projetos Principais</h2></summary>
-  
-  <a href="https://github.com/WadssaWacemberg/Sistema_de_Gestao_de_Clientes_e_Distribuicao_de_Rede">
-    <img src="https://img.shields.io/badge/PROJETO-GESTÃO_DE_CLIENTES-F85D7F?style=for-the-badge&logo=github&logoColor=white&labelColor=1F222E" alt="Gestão de Clientes">
-  </a>
-  <br/>
-  <a href="https://github.com/WadssaWacemberg/Sistema_Bancario">
-    <img src="https://img.shields.io/badge/PROJETO-SISTEMA_BANCÁRIO-F8D866?style=for-the-badge&logo=github&logoColor=black&labelColor=1F222E" alt="Sistema Bancário">
-  </a>
-  <br/>
-  <a href="https://github.com/WadssaWacemberg/studytech-prototype">
-    <img src="https://img.shields.io/badge/PROJETO-STUDYTECH_PROTOTYPE-F85D7F?style=for-the-badge&logo=github&logoColor=white&labelColor=1F222E" alt="StudyTech">
-  </a>
-  <br/>
-  <a href="https://github.com/WadssaWacemberg/Projeto-mini-ia">
-    <img src="https://img.shields.io/badge/PROJETO-MINI_IA-F8D866?style=for-the-badge&logo=github&logoColor=black&labelColor=1F222E" alt="Mini IA">
-  </a>
-
-</details>
-
 <details open> 
   <summary><h2>🛠️ Ferramentas e Tecnologias</h2></summary>
 
@@ -69,6 +47,26 @@ Atualmente, estou cursando Ciência da Computação e Bootcamp Generation Brasil
       <img alt="Figma" src="https://img.shields.io/badge/Figma-F24E1E.svg?logo=figma&logoColor=white">
       <img alt="Visual Studio Code" src="https://img.shields.io/badge/VS%20Code-007ACC.svg?logo=visual-studio-code&logoColor=white">
   </p>
+</details>
+<details open> 
+  <summary><h2>🚀 Meus Projetos Principais</h2></summary>
+  
+  <a href="https://github.com/WadssaWacemberg/Sistema_de_Gestao_de_Clientes_e_Distribuicao_de_Rede">
+    <img src="https://img.shields.io/badge/PROJETO-GESTÃO_DE_CLIENTES-F85D7F?style=for-the-badge&logo=github&logoColor=white&labelColor=1F222E" alt="Gestão de Clientes">
+  </a>
+  <br/>
+  <a href="https://github.com/WadssaWacemberg/Sistema_Bancario">
+    <img src="https://img.shields.io/badge/PROJETO-SISTEMA_BANCÁRIO-F8D866?style=for-the-badge&logo=github&logoColor=black&labelColor=1F222E" alt="Sistema Bancário">
+  </a>
+  <br/>
+  <a href="https://github.com/WadssaWacemberg/studytech-prototype">
+    <img src="https://img.shields.io/badge/PROJETO-STUDYTECH_PROTOTYPE-F85D7F?style=for-the-badge&logo=github&logoColor=white&labelColor=1F222E" alt="StudyTech">
+  </a>
+  <br/>
+  <a href="https://github.com/WadssaWacemberg/Projeto-mini-ia">
+    <img src="https://img.shields.io/badge/PROJETO-MINI_IA-F8D866?style=for-the-badge&logo=github&logoColor=black&labelColor=1F222E" alt="Mini IA">
+  </a>
+
 </details>
 
 <details open> 
