@@ -29,21 +29,24 @@ Atualmente, estou cursando Ciência da Computação e Bootcamp Generation Brasil
 <br/>
 
 <details open> 
-  <summary><h2>📘 Meus Projetos Principais</h2></summary>
-  <p align="left">
-    <a href="https://github.com/WadssaWacemberg/Sistema_de_Gestao_de_Clientes_e_Distribuicao_de_Rede">
-      <img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=WadssaWacemberg&repo=Sistema_de_Gestao_de_Clientes_e_Distribuicao_de_Rede&theme=react&bg_color=1F222E&title_color=F85D7F&hide_border=true&icon_color=F8D866" alt="Gestão de Clientes">
-    </a>
-    <a href="https://github.com/WadssaWacemberg/Sistema_Bancario">
-      <img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=WadssaWacemberg&repo=Sistema_Bancario&theme=react&bg_color=1F222E&title_color=F85D7F&hide_border=true&icon_color=F8D866" alt="Sistema Bancário">
-    </a>
-    <a href="https://github.com/WadssaWacemberg/studytech-prototype">
-      <img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=WadssaWacemberg&repo=studytech-prototype&theme=react&bg_color=1F222E&title_color=F85D7F&hide_border=true&icon_color=F8D866" alt="StudyTech Prototype">
-    </a>
-    <a href="https://github.com/WadssaWacemberg/Projeto-mini-ia">
-      <img width="278" src="https://github-readme-stats.vercel.app/api/pin/?username=WadssaWacemberg&repo=Projeto-mini-ia&theme=react&bg_color=1F222E&title_color=F85D7F&hide_border=true&icon_color=F8D866" alt="Projeto Mini IA">
-    </a>
-  </p>
+  <summary><h2>🚀 Meus Projetos Principais</h2></summary>
+  
+  <a href="https://github.com/WadssaWacemberg/Sistema_de_Gestao_de_Clientes_e_Distribuicao_de_Rede">
+    <img src="https://img.shields.io/badge/PROJETO-GESTÃO_DE_CLIENTES-F85D7F?style=for-the-badge&logo=github&logoColor=white&labelColor=1F222E" alt="Gestão de Clientes">
+  </a>
+  <br/>
+  <a href="https://github.com/WadssaWacemberg/Sistema_Bancario">
+    <img src="https://img.shields.io/badge/PROJETO-SISTEMA_BANCÁRIO-F8D866?style=for-the-badge&logo=github&logoColor=black&labelColor=1F222E" alt="Sistema Bancário">
+  </a>
+  <br/>
+  <a href="https://github.com/WadssaWacemberg/studytech-prototype">
+    <img src="https://img.shields.io/badge/PROJETO-STUDYTECH_PROTOTYPE-F85D7F?style=for-the-badge&logo=github&logoColor=white&labelColor=1F222E" alt="StudyTech">
+  </a>
+  <br/>
+  <a href="https://github.com/WadssaWacemberg/Projeto-mini-ia">
+    <img src="https://img.shields.io/badge/PROJETO-MINI_IA-F8D866?style=for-the-badge&logo=github&logoColor=black&labelColor=1F222E" alt="Mini IA">
+  </a>
+
 </details>
 
 <details open> 
@@ -71,23 +74,17 @@ Atualmente, estou cursando Ciência da Computação e Bootcamp Generation Brasil
 <details open> 
   <summary><h2>📊 Estatísticas e Atividade</h2></summary>
 
-  <p>
-<img 
-      align="left" 
-      alt="GitHub Stats" 
-      height="200" 
-      src="https://github-readme-stats.vercel.app/api/top-langs/?username=larissakich&theme=tokyonight&layout=compact&custom_title=Tecnologias&langs_count=9" 
-  />
+  
+   <p align="center">
+    <img src="https://img.shields.io/github/languages/top/WadssaWacemberg/Sistema_Bancario?style=for-the-badge&labelColor=1F222E&color=F85D7F&logo=typescript&logoColor=white">
+    <img src="https://img.shields.io/github/repo-size/WadssaWacemberg/Sistema_Bancario?style=for-the-badge&labelColor=1F222E&color=F8D866&logo=github">
+    <img src="https://img.shields.io/github/stars/WadssaWacemberg?style=for-the-badge&labelColor=1F222E&color=F85D7F&logo=github">
+  </p>
+ 
+  <p align="center">
+    <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph/?username=WadssaWacemberg&bg_color=1F222E&color=F8D866&line=F85D7F&point=FFFFFF&hide_border=true" />
+  </p>
 
-</p>
-<br/>
-  
-  <p align="center">
-    <img alt="Wadssa's Github Stats" src="https://github-readme-stats.vercel.app/api?username=WadssaWacemberg&show_icons=true&theme=react&hide_border=true&bg_color=1F222E&title_color=F85D7F&icon_color=F8D866" height="192px"/>
-    <img alt="Wadssa's Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=WadssaWacemberg&langs_count=8&layout=compact&theme=react&hide_border=true&bg_color=1F222E&title_color=F85D7F&icon_color=F8D866" height="192px"/>
-  </p>
-  
-  <p align="center">
-    <img alt="Wadssa's Activity Graph" src="https://github-readme-activity-graph.vercel.app/graph/?username=WadssaWacemberg&bg_color=1F222E&color=F8D866&line=F85D7F&point=FFFFFF&hide_border=true" />
-  </p>
+ 
+
 </details>
