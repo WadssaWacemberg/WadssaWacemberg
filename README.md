@@ -30,23 +30,32 @@ Atualmente, estou cursando Ciência da Computação e Bootcamp Generation Brasil
 <details open> 
   <summary><h2>🛠️ Ferramentas e Tecnologias</h2></summary>
 
-  <h3>👨‍💻 Linguagens</h3>
-  <p>
-      <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white">
-      <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-007ACC.svg?logo=typescript&logoColor=white">
-      <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?logo=javascript&logoColor=black">
-      <img alt="HTML" src="https://img.shields.io/badge/HTML-E34F26.svg?logo=html5&logoColor=white">
-      <img alt="CSS" src="https://img.shields.io/badge/CSS-1572B6.svg?logo=css3&logoColor=white">
-      <img alt="MySQL" src="https://img.shields.io/badge/MySQL-005C84?logo=mysql&logoColor=white">
-  </p>
+ ### 👨‍💻 Stack Tecnológica
 
-  <h3>🧰 Frameworks e Ferramentas</h3>
-  <p>
-      <img alt="Node.js" src="https://img.shields.io/badge/Node.js-339933.svg?logo=node.js&logoColor=white">
-      <img alt="Git" src="https://img.shields.io/badge/Git-F05033.svg?logo=git&logoColor=white">
-      <img alt="Figma" src="https://img.shields.io/badge/Figma-F24E1E.svg?logo=figma&logoColor=white">
-      <img alt="Visual Studio Code" src="https://img.shields.io/badge/VS%20Code-007ACC.svg?logo=visual-studio-code&logoColor=white">
-  </p>
+<p align="left">
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-007ACC.svg?logo=typescript&logoColor=white">
+  <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?logo=javascript&logoColor=black">
+  <img alt="Node.js" src="https://img.shields.io/badge/Node.js-339933.svg?logo=nodedotjs&logoColor=white">
+  <img alt="NestJS" src="https://img.shields.io/badge/NestJS-E0234E.svg?logo=nestjs&logoColor=white">
+  <img alt="React" src="https://img.shields.io/badge/React-61DAFB.svg?logo=react&logoColor=black">
+  <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white">
+  <img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white">
+  <img alt="MySQL" src="https://img.shields.io/badge/MySQL-005C84?logo=mysql&logoColor=white">
+  <img alt="HTML5" src="https://img.shields.io/badge/HTML5-E34F26.svg?logo=html5&logoColor=white">
+  <img alt="CSS3" src="https://img.shields.io/badge/CSS3-1572B6.svg?logo=css3&logoColor=white">
+  <img alt="Git" src="https://img.shields.io/badge/Git-F05032.svg?logo=git&logoColor=white">
+</p>
+
+### 🧰 Frameworks e Ferramentas
+
+<p align="left">
+  <img alt="Node.js" src="https://img.shields.io/badge/Node.js-339933.svg?logo=nodedotjs&logoColor=white">
+  <img alt="Git" src="https://img.shields.io/badge/Git-F05032.svg?logo=git&logoColor=white">
+  <img alt="Vercel" src="https://img.shields.io/badge/Vercel-000000.svg?logo=vercel&logoColor=white">
+  <img alt="Render" src="https://img.shields.io/badge/Render-46E3B7.svg?logo=render&logoColor=white">
+  <img alt="Figma" src="https://img.shields.io/badge/Figma-F24E1E.svg?logo=figma&logoColor=white">
+  <img alt="VS Code" src="https://img.shields.io/badge/VS%20Code-007ACC.svg?logo=visual-studio-code&logoColor=white">
+</p>
 </details>
 <details open> 
   <summary><h2>🚀 Meus Projetos Principais</h2></summary>
@@ -70,19 +79,15 @@ Atualmente, estou cursando Ciência da Computação e Bootcamp Generation Brasil
 </details>
 
 <details open> 
-  <summary><h2>📊 Estatísticas e Atividade</h2></summary>
+  <summary><h2>🌌 Atividade de Engenharia</h2></summary>
 
-  
-   <p align="center">
-    <img src="https://img.shields.io/github/languages/top/WadssaWacemberg/Sistema_Bancario?style=for-the-badge&labelColor=1F222E&color=F85D7F&logo=typescript&logoColor=white">
-    <img src="https://img.shields.io/github/repo-size/WadssaWacemberg/Sistema_Bancario?style=for-the-badge&labelColor=1F222E&color=F8D866&logo=github">
-    <img src="https://img.shields.io/github/stars/WadssaWacemberg?style=for-the-badge&labelColor=1F222E&color=F85D7F&logo=github">
-  </p>
- 
-  <p align="center">
-    <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph/?username=WadssaWacemberg&bg_color=1F222E&color=F8D866&line=F85D7F&point=FFFFFF&hide_border=true" />
-  </p>
+<p align="center">
+  <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph/?username=WadssaWacemberg&bg_color=0D1117&color=C9D1D9&line=58A6FF&point=F0883E&hide_border=true&custom_title=Atividade+de+Singularidade" />
+</p>
 
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=WadssaWacemberg&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true" />
+</p>
  
 
 </details>
