@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#0d1238" />
+  <meta name="description" content="WAI // Project Orbit — a cute cartoon platform mini-game for exploring Wadssa Wacemberg's projects." />
+  <title>WAI // Project Orbit</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <canvas id="game" aria-label="WAI Project Orbit game"></canvas>
+
+  <div id="topHud" class="top-hud">
+    <div class="stat-pill"><span class="heart-icon">♥</span><strong id="livesValue">3</strong></div>
+    <div class="stat-pill"><span class="coin-icon">★</span><strong id="coinsValue">0</strong></div>
+    <div class="stat-pill level-pill"><span>LEVEL</span><strong>1</strong></div>
+    <button id="settingsButton" class="circle-button" type="button" aria-label="Game information">⚙</button>
+  </div>
+
+  <section id="startUi" class="start-ui">
+    <div class="logo-wrap">
+      <div class="logo-main"><span>WAI</span><em>//</em></div>
+      <div class="logo-sub">PROJECT ORBIT</div>
+      <div class="spark-line"><i></i><span>★</span><i></i></div>
+      <p>Jump through the planets<br />to explore my projects</p>
+    </div>
+
+    <button id="startButton" class="start-button" type="button"><span>★</span> PRESS START <span>★</span></button>
+    <div class="launch-copy">★ Let's launch something amazing! ★</div>
+
+    <div class="start-menu">
+      <button id="achievementsButton" class="menu-button" type="button"><span>🏆</span><b>ACHIEVEMENTS</b></button>
+      <button id="characterButton" class="menu-button" type="button"><span>👩‍🚀</span><b>CHARACTER</b></button>
+      <a class="menu-button" href="https://github.com/WadssaWacemberg/WadssaWacemberg" target="_blank" rel="noopener noreferrer"><span>🚀</span><b>ABOUT</b></a>
+    </div>
+  </section>
+
+  <header id="gameTitle" class="game-title is-hidden">
+    <div><span>WAI //</span> PROJECT ORBIT</div>
+    <small>Jump · collect stars · land on a project planet</small>
+  </header>
+
+  <section id="projectPrompt" class="project-prompt is-hidden" aria-live="polite">
+    <div class="prompt-kicker">PROJECT PLANET</div>
+    <h2 id="projectName">W.AI Observer 3D</h2>
+    <p id="projectDescription">Main immersive experience</p>
+    <button id="openProjectButton" type="button">OPEN PROJECT ↗</button>
+    <small>Press E or ENTER</small>
+  </section>
+
+  <section id="toast" class="toast is-hidden" aria-live="polite"></section>
+
+  <section id="infoModal" class="modal is-hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button id="closeModal" class="modal-close" type="button" aria-label="Close">×</button>
+      <div class="modal-kicker">WAI // PROJECT ORBIT</div>
+      <h2 id="modalTitle">How to play</h2>
+      <div id="modalContent" class="modal-content"></div>
+    </div>
+  </section>
+
+  <section id="mobileControls" class="mobile-controls is-hidden" aria-label="Touch controls">
+    <button data-action="left" type="button">◀</button>
+    <button data-action="jump" class="jump-control" type="button">▲</button>
+    <button data-action="right" type="button">▶</button>
+    <button data-action="interact" class="action-control" type="button">E</button>
+  </section>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

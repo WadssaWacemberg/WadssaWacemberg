@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="54" viewBox="0 0 280 54" role="img" aria-label="PLAY MY GIT HISTORY — ENTER COMMIT ORBIT">
+<defs><filter id="g" x="-50%" y="-100%" width="200%" height="300%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect x="1" y="1" width="278" height="52" rx="9" fill="#0D1117" stroke="#30363D"/>
+<rect x="1" y="1" width="278" height="52" rx="9" fill="none" stroke="#FD5812" stroke-opacity=".18"><animate attributeName="stroke-opacity" values=".15;.72;.15" dur="2.5s" repeatCount="indefinite"/></rect>
+<circle cx="20" cy="27" r="4" fill="#FD5812" filter="url(#g)"><animate attributeName="r" values="3;5.4;3" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values=".45;1;.45" dur="1.8s" repeatCount="indefinite"/></circle>
+<circle cx="20" cy="27" r="9" fill="none" stroke="#FD5812" stroke-opacity=".32"><animate attributeName="r" values="6;14;6" dur="2.2s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values=".55;0;.55" dur="2.2s" repeatCount="indefinite"/></circle>
+<text x="38" y="23" font-family="'JetBrains Mono','Consolas',monospace" font-size="12.5" font-weight="700" fill="#E6EDF3" letter-spacing="1">PLAY MY GIT HISTORY</text>
+<text x="38" y="39" font-family="'JetBrains Mono','Consolas',monospace" font-size="9.5" fill="#FD5812" letter-spacing="1.5">ENTER COMMIT ORBIT</text>
+<line x1="16" y1="50" x2="264" y2="50" stroke="#FD5812" stroke-width="2" stroke-linecap="round" stroke-dasharray="66 280"><animate attributeName="stroke-dashoffset" values="280;0;-280" dur="3.1s" repeatCount="indefinite"/></line>
+</svg>

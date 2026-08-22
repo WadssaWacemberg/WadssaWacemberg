@@ -1,0 +1,19 @@
+[
+  {
+    "type": "normal",
+    "fileName": "profile-orange.svg",
+    "backgroundColor": "#0D1117",
+    "foregroundColor": "#E6EDF3",
+    "strongColor": "#FD5812",
+    "weakColor": "#30363D",
+    "radarColor": "#FD5812",
+    "growingAnimation": true,
+    "contribColors": [
+      "#161B22",
+      "#3D2117",
+      "#7A2F13",
+      "#C4420D",
+      "#FD5812"
+    ]
+  }
+]

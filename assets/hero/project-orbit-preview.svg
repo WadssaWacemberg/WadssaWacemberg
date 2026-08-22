@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="620" viewBox="0 0 1400 620" role="img" aria-label="WAI Project Orbit cartoon game preview">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#07102f"/><stop offset=".55" stop-color="#173670"/><stop offset="1" stop-color="#8069c9"/></linearGradient>
+  <radialGradient id="gold" cx="35%" cy="30%" r="75%"><stop stop-color="#fff2a1"/><stop offset=".3" stop-color="#ffd366"/><stop offset="1" stop-color="#ef9633"/></radialGradient>
+  <radialGradient id="pink" cx="35%" cy="30%" r="75%"><stop stop-color="#ffe7f2"/><stop offset=".3" stop-color="#ffb1d0"/><stop offset="1" stop-color="#e674a8"/></radialGradient>
+  <radialGradient id="green" cx="35%" cy="30%" r="75%"><stop stop-color="#e4fff2"/><stop offset=".3" stop-color="#83e9bd"/><stop offset="1" stop-color="#44b385"/></radialGradient>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1400" height="620" rx="34" fill="url(#bg)"/>
+<g fill="#fff" opacity=".7">
+  <circle cx="90" cy="80" r="3"/><circle cx="170" cy="132" r="2"/><circle cx="256" cy="74" r="2.5"/><circle cx="364" cy="121" r="2"/><circle cx="470" cy="82" r="3"/><circle cx="590" cy="136" r="2"/><circle cx="740" cy="72" r="2.5"/><circle cx="850" cy="126" r="2"/><circle cx="990" cy="80" r="3"/><circle cx="1110" cy="132" r="2"/><circle cx="1260" cy="75" r="2.5"/>
+</g>
+<text x="700" y="88" text-anchor="middle" font-family="Arial Rounded MT Bold,Arial,sans-serif" font-size="54" font-weight="900" fill="#fff8ec" stroke="#6755a2" stroke-width="4">WAI // PROJECT ORBIT</text>
+<text x="700" y="130" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#eaf4ff">Jump through the planets to explore my projects</text>
+<g transform="translate(120 390)">
+  <ellipse cx="110" cy="78" rx="120" ry="22" fill="#101938" opacity=".25"/>
+  <circle cx="110" cy="0" r="92" fill="url(#gold)" stroke="#493b72" stroke-width="7"/>
+  <ellipse cx="80" cy="-12" rx="7" ry="10" fill="#29253e"/><ellipse cx="140" cy="-12" rx="7" ry="10" fill="#29253e"/>
+  <path d="M90 20 Q110 40 130 20" fill="none" stroke="#29253e" stroke-width="6" stroke-linecap="round"/>
+  <ellipse cx="62" cy="23" rx="12" ry="6" fill="#ff9fb8"/><ellipse cx="158" cy="23" rx="12" ry="6" fill="#ff9fb8"/>
+</g>
+<g transform="translate(980 350)">
+  <circle cx="0" cy="0" r="78" fill="url(#pink)" stroke="#493b72" stroke-width="7"/>
+  <ellipse cx="-24" cy="-8" rx="6" ry="9" fill="#29253e"/><ellipse cx="24" cy="-8" rx="6" ry="9" fill="#29253e"/>
+  <path d="M-14 18 Q0 32 14 18" fill="none" stroke="#29253e" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="-40" cy="18" rx="10" ry="5" fill="#ff9fb8"/><ellipse cx="40" cy="18" rx="10" ry="5" fill="#ff9fb8"/>
+  <ellipse cx="0" cy="0" rx="116" ry="28" fill="none" stroke="#ffc7ad" stroke-width="12" opacity=".85"/>
+</g>
+<g transform="translate(1180 460)">
+  <circle cx="0" cy="0" r="72" fill="url(#green)" stroke="#493b72" stroke-width="7"/>
+  <ellipse cx="-22" cy="-7" rx="6" ry="9" fill="#29253e"/><ellipse cx="22" cy="-7" rx="6" ry="9" fill="#29253e"/>
+  <path d="M-13 17 Q0 30 13 17" fill="none" stroke="#29253e" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="0" cy="0" rx="108" ry="26" fill="none" stroke="#bdf0db" stroke-width="11" opacity=".85"/>
+</g>
+<g fill="#fff" stroke="#c7e0f7" stroke-width="4">
+  <path d="M382 476c-23-4-36-22-30-42 5-18 24-28 43-25 8-24 29-36 50-31 16 4 29 17 32 34 22-4 42 10 45 30 3 20-11 37-34 39H392c-4 0-7-2-10-5z"/>
+  <path d="M760 418c-23-4-36-22-30-42 5-18 24-28 43-25 8-24 29-36 50-31 16 4 29 17 32 34 22-4 42 10 45 30 3 20-11 37-34 39H770c-4 0-7-2-10-5z"/>
+</g>
+<g transform="translate(650 348)" filter="url(#glow)">
+  <ellipse cx="0" cy="118" rx="48" ry="13" fill="#101938" opacity=".22"/>
+  <circle cx="0" cy="-15" r="55" fill="#fff" stroke="#3a3855" stroke-width="7"/>
+  <circle cx="0" cy="-15" r="42" fill="#9bdcff" stroke="#3a3855" stroke-width="6"/>
+  <circle cx="0" cy="-10" r="31" fill="#ffdcca"/>
+  <path d="M-29-13c8-22 27-29 47-21 11 5 18 14 20 24-18-10-39-10-67-3z" fill="#352632"/>
+  <ellipse cx="-11" cy="-5" rx="5" ry="7" fill="#2a253c"/><ellipse cx="11" cy="-5" rx="5" ry="7" fill="#2a253c"/>
+  <path d="M-8 11 Q0 19 8 11" fill="none" stroke="#a75565" stroke-width="3.5" stroke-linecap="round"/>
+  <rect x="-34" y="42" width="68" height="82" rx="28" fill="#f8fbff" stroke="#3a3855" stroke-width="7"/>
+  <path d="M-26 61 L-63 77" stroke="#f8fbff" stroke-width="18" stroke-linecap="round"/><path d="M26 61 L63 44" stroke="#f8fbff" stroke-width="18" stroke-linecap="round"/>
+  <path d="M-14 113 L-29 145" stroke="#f8fbff" stroke-width="18" stroke-linecap="round"/><path d="M14 113 L30 145" stroke="#f8fbff" stroke-width="18" stroke-linecap="round"/>
+  <rect x="-18" y="72" width="36" height="18" rx="5" fill="#dce6f4"/><circle cx="-7" cy="81" r="4" fill="#ff9d49"/><circle cx="7" cy="81" r="4" fill="#77d7ff"/>
+</g>
+<g fill="url(#gold)" stroke="#f49a2f" stroke-width="4">
+  <circle cx="820" cy="236" r="22"/><circle cx="880" cy="282" r="22"/><circle cx="845" cy="330" r="22"/>
+</g>
+<g fill="#fff0a7" font-family="Arial" font-size="23" font-weight="900" text-anchor="middle"><text x="820" y="244">★</text><text x="880" y="290">★</text><text x="845" y="338">★</text></g>
+<rect x="500" y="526" width="400" height="64" rx="32" fill="url(#gold)" stroke="#fff2a9" stroke-width="5" filter="url(#glow)"/>
+<text x="700" y="568" text-anchor="middle" font-family="Arial Rounded MT Bold,Arial,sans-serif" font-size="30" font-weight="900" fill="#4b3671">PLAY PROJECT ORBIT</text>
+</svg>
