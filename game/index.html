@@ -3,50 +3,51 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <meta name="theme-color" content="#0d1238" />
-  <meta name="description" content="WAI // Project Orbit — a cute cartoon platform mini-game for exploring Wadssa Wacemberg's projects." />
+  <meta name="theme-color" content="#080e36" />
+  <meta name="description" content="WAI // Project Orbit — a premium cartoon platform mini-game for exploring Wadssa Wacemberg's projects." />
   <title>WAI // Project Orbit</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <canvas id="game" aria-label="WAI Project Orbit game"></canvas>
 
-  <div id="topHud" class="top-hud">
-    <div class="stat-pill"><span class="heart-icon">♥</span><strong id="livesValue">3</strong></div>
-    <div class="stat-pill"><span class="coin-icon">★</span><strong id="coinsValue">0</strong></div>
-    <div class="stat-pill level-pill"><span>LEVEL</span><strong>1</strong></div>
-    <button id="settingsButton" class="circle-button" type="button" aria-label="Game information">⚙</button>
-  </div>
+  <header id="topHud" class="top-hud">
+    <div class="hud-pill"><span class="heart-symbol">♥</span><strong id="livesValue">3</strong></div>
+    <div class="hud-pill"><span class="coin-symbol">★</span><strong id="coinsValue">0</strong></div>
+    <div class="hud-pill level-pill"><span>LEVEL</span><strong>1</strong></div>
+    <button id="pauseButton" class="hud-circle is-hidden" type="button" aria-label="Pause game">Ⅱ</button>
+    <button id="settingsButton" class="hud-circle" type="button" aria-label="Game information">⚙</button>
+  </header>
 
   <section id="startUi" class="start-ui">
-    <div class="logo-wrap">
+    <div class="logo-panel">
       <div class="logo-main"><span>WAI</span><em>//</em></div>
       <div class="logo-sub">PROJECT ORBIT</div>
-      <div class="spark-line"><i></i><span>★</span><i></i></div>
+      <div class="logo-line"><i></i><b>★</b><i></i></div>
       <p>Jump through the planets<br />to explore my projects</p>
     </div>
 
     <button id="startButton" class="start-button" type="button"><span>★</span> PRESS START <span>★</span></button>
     <div class="launch-copy">★ Let's launch something amazing! ★</div>
 
-    <div class="start-menu">
+    <nav class="start-menu" aria-label="Project Orbit menu">
       <button id="achievementsButton" class="menu-button" type="button"><span>🏆</span><b>ACHIEVEMENTS</b></button>
       <button id="characterButton" class="menu-button" type="button"><span>👩‍🚀</span><b>CHARACTER</b></button>
       <a class="menu-button" href="https://github.com/WadssaWacemberg/WadssaWacemberg" target="_blank" rel="noopener noreferrer"><span>🚀</span><b>ABOUT</b></a>
-    </div>
+    </nav>
   </section>
 
-  <header id="gameTitle" class="game-title is-hidden">
+  <section id="gameLogo" class="game-logo is-hidden">
     <div><span>WAI //</span> PROJECT ORBIT</div>
-    <small>Jump · collect stars · land on a project planet</small>
-  </header>
+    <small>Jump on clouds · collect stars · land on project planets</small>
+  </section>
 
   <section id="projectPrompt" class="project-prompt is-hidden" aria-live="polite">
     <div class="prompt-kicker">PROJECT PLANET</div>
     <h2 id="projectName">W.AI Observer 3D</h2>
     <p id="projectDescription">Main immersive experience</p>
     <button id="openProjectButton" type="button">OPEN PROJECT ↗</button>
-    <small>Press E or ENTER</small>
+    <small>E / ENTER</small>
   </section>
 
   <section id="toast" class="toast is-hidden" aria-live="polite"></section>
