@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <meta name="theme-color" content="#080e36" />
+  <meta name="theme-color" content="#081039" />
   <meta name="description" content="WAI // Project Orbit — a premium cartoon platform mini-game for exploring Wadssa Wacemberg's projects." />
   <title>WAI // Project Orbit</title>
   <link rel="stylesheet" href="./styles.css" />
@@ -48,6 +48,17 @@
     <p id="projectDescription">Main immersive experience</p>
     <button id="openProjectButton" type="button">OPEN PROJECT ↗</button>
     <small>E / ENTER</small>
+  </section>
+
+  <section id="finishScreen" class="finish-screen is-hidden" aria-live="assertive">
+    <div class="finish-card">
+      <div class="finish-stars">★ ✦ ★</div>
+      <div class="finish-kicker">WAI // PROJECT ORBIT</div>
+      <h2>FIM</h2>
+      <p id="finishText">Mission complete.</p>
+      <div id="finishCountdown" class="finish-countdown">Returning to GitHub...</div>
+      <button id="finishNowButton" type="button">OPEN GITHUB NOW ↗</button>
+    </div>
   </section>
 
   <section id="toast" class="toast is-hidden" aria-live="polite"></section>

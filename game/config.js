@@ -1,25 +1,25 @@
 export const WAI_CONFIG = {
   world: {
-    width: 5200,
+    width: 5050,
     height: 900,
-    gravity: 0.78,
-    moveAcceleration: 0.86,
-    maxSpeed: 8.6,
-    jumpPower: 16.4,
+    gravity: 0.74,
+    moveAcceleration: 0.84,
+    maxSpeed: 8.4,
+    jumpPower: 16.8,
     friction: 0.82,
     fallLimit: 1020
   },
+  githubReturn: 'https://github.com/WadssaWacemberg/WadssaWacemberg',
   projects: [
     {
       id: 'observer',
       number: 1,
       name: 'W.AI Observer 3D',
       subtitle: 'Main immersive experience',
-      x: 700,
+      x: 720,
       y: 620,
-      radius: 104,
-      colors: ['#94f2d3', '#58cdb1', '#2b9c89'],
-      ring: '#bff8e8',
+      radius: 100,
+      asset: './assets/planet-observer.svg',
       url: 'https://wai-observer-3d-portfolio.wadssa.workers.dev/'
     },
     {
@@ -27,11 +27,10 @@ export const WAI_CONFIG = {
       number: 2,
       name: 'FreshFood',
       subtitle: 'React · TypeScript · Node.js',
-      x: 1460,
-      y: 495,
-      radius: 96,
-      colors: ['#ffc3dc', '#ff8fba', '#e35e98'],
-      ring: '#ffd4c4',
+      x: 1390,
+      y: 505,
+      radius: 94,
+      asset: './assets/planet-freshfood.svg',
       url: 'https://github.com/WadssaWacemberg/FreshFood_Front'
     },
     {
@@ -39,11 +38,10 @@ export const WAI_CONFIG = {
       number: 3,
       name: 'Mercadinho EcoOne',
       subtitle: 'Node.js · Express · PostgreSQL',
-      x: 2260,
-      y: 360,
+      x: 2050,
+      y: 390,
       radius: 94,
-      colors: ['#ffd879', '#ffb94f', '#ea8f38'],
-      ring: '#ffe6a8',
+      asset: './assets/planet-ecoone.svg',
       url: 'https://github.com/WadssaWacemberg/Mercadinho-EcoOne'
     },
     {
@@ -51,11 +49,10 @@ export const WAI_CONFIG = {
       number: 4,
       name: 'Portfolio Hub',
       subtitle: 'Responsive · Bilingual',
-      x: 3070,
-      y: 520,
-      radius: 98,
-      colors: ['#d9c1ff', '#a77cf4', '#7950c8'],
-      ring: '#e8dcff',
+      x: 2750,
+      y: 555,
+      radius: 96,
+      asset: './assets/planet-portfolio.svg',
       url: 'https://wadssawacemberg.github.io/Landing-Page/en/'
     },
     {
@@ -63,11 +60,10 @@ export const WAI_CONFIG = {
       number: 5,
       name: 'LinkedIn',
       subtitle: 'Professional profile',
-      x: 3890,
-      y: 395,
-      radius: 96,
-      colors: ['#a7e5ff', '#69c9f3', '#3b91cc'],
-      ring: '#d7f1ff',
+      x: 3520,
+      y: 390,
+      radius: 94,
+      asset: './assets/planet-linkedin.svg',
       url: 'https://www.linkedin.com/in/wadssa-wacemberg'
     },
     {
@@ -75,11 +71,10 @@ export const WAI_CONFIG = {
       number: 6,
       name: 'GitHub',
       subtitle: 'Repositories',
-      x: 4730,
-      y: 600,
-      radius: 104,
-      colors: ['#a9b8ff', '#7385db', '#5361ae'],
-      ring: '#d9deff',
+      x: 4260,
+      y: 560,
+      radius: 102,
+      asset: './assets/planet-github.svg',
       url: 'https://github.com/WadssaWacemberg?tab=repositories'
     }
   ]

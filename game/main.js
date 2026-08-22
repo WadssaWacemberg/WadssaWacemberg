@@ -21,51 +21,51 @@ const modalTitle = document.getElementById('modalTitle');
 const modalContent = document.getElementById('modalContent');
 const closeModal = document.getElementById('closeModal');
 const mobileControls = document.getElementById('mobileControls');
+const finishScreen = document.getElementById('finishScreen');
+const finishText = document.getElementById('finishText');
+const finishCountdown = document.getElementById('finishCountdown');
+const finishNowButton = document.getElementById('finishNowButton');
 
 const world = WAI_CONFIG.world;
-const projects = WAI_CONFIG.projects.map((project, index) => ({ ...project, phase: index * 0.72 }));
+const projects = WAI_CONFIG.projects.map((project, index) => ({ ...project, phase: index * 0.73 }));
 
 const platforms = [
-  { id:'start', x:200, y:700, w:260, face:true, phase:0.1 },
-  { id:'c1', x:470, y:655, w:180, face:false, phase:0.8 },
-  { id:'c2', x:980, y:595, w:180, face:true, phase:1.5 },
-  { id:'c3', x:1165, y:545, w:170, face:false, phase:2.2 },
-  { id:'c4', x:1325, y:500, w:160, face:true, phase:2.9 },
-  { id:'c5', x:1710, y:455, w:180, face:false, phase:3.6 },
-  { id:'c6', x:1900, y:410, w:170, face:true, phase:4.3 },
-  { id:'c7', x:2085, y:370, w:160, face:false, phase:5.0 },
-  { id:'c8', x:2505, y:405, w:175, face:true, phase:5.7 },
-  { id:'c9', x:2695, y:450, w:170, face:false, phase:6.4 },
-  { id:'c10', x:2885, y:495, w:165, face:true, phase:7.1 },
-  { id:'c11', x:3310, y:485, w:180, face:false, phase:7.8 },
-  { id:'c12', x:3510, y:440, w:172, face:true, phase:8.5 },
-  { id:'c13', x:3700, y:405, w:164, face:false, phase:9.2 },
-  { id:'c14', x:4170, y:450, w:180, face:true, phase:9.9 },
-  { id:'c15', x:4360, y:510, w:170, face:false, phase:10.6 },
-  { id:'c16', x:4540, y:565, w:166, face:true, phase:11.3 },
-  { id:'end', x:5000, y:665, w:220, face:true, phase:12.0 }
+  { id:'start', x:250, y:735, w:290, type:'wide', face:true, phase:0.1 },
+  { id:'c1', x:515, y:690, w:180, type:'happy', face:true, phase:0.8 },
+  { id:'c2', x:930, y:625, w:185, type:'soft', face:false, phase:1.4 },
+  { id:'c3', x:1115, y:575, w:175, type:'happy', face:true, phase:2.1 },
+  { id:'c4', x:1590, y:505, w:185, type:'soft', face:false, phase:2.8 },
+  { id:'c5', x:1780, y:460, w:175, type:'happy', face:true, phase:3.5 },
+  { id:'c6', x:2250, y:430, w:180, type:'happy', face:true, phase:4.2 },
+  { id:'c7', x:2440, y:480, w:175, type:'soft', face:false, phase:4.9 },
+  { id:'c8', x:2960, y:555, w:185, type:'soft', face:false, phase:5.6 },
+  { id:'c9', x:3150, y:505, w:178, type:'happy', face:true, phase:6.3 },
+  { id:'c10', x:3330, y:455, w:170, type:'soft', face:false, phase:7.0 },
+  { id:'c11', x:3745, y:445, w:182, type:'happy', face:true, phase:7.7 },
+  { id:'c12', x:3935, y:500, w:178, type:'soft', face:false, phase:8.4 },
+  { id:'c13', x:4105, y:555, w:170, type:'happy', face:true, phase:9.1 },
+  { id:'c14', x:4495, y:615, w:185, type:'soft', face:false, phase:9.8 },
+  { id:'finish', x:4775, y:680, w:300, type:'wide', face:true, phase:10.5 }
 ];
 
 const coinData = [
-  [330,645],[485,595],[615,550],[875,540],[1010,535],[1170,480],[1325,440],
-  [1565,420],[1710,395],[1900,350],[2080,310],[2290,245],[2510,345],[2695,390],
-  [2885,435],[3130,410],[3310,425],[3500,380],[3700,345],[3910,290],[4170,390],
-  [4360,450],[4540,510],[4750,500],[4980,605]
-].map((item, index) => ({ id:`coin-${index}`, x:item[0], y:item[1], phase:index * 0.43 }));
+  [390,625],[525,610],[645,575],[820,545],[965,545],[1120,500],[1285,455],
+  [1530,425],[1680,390],[1825,355],[1960,300],[2180,315],[2290,355],[2440,405],
+  [2600,440],[2820,465],[2975,475],[3150,430],[3330,380],[3450,330],[3650,335],
+  [3770,365],[3950,425],[4120,485],[4360,485],[4510,545],[4660,585]
+].map((item, index) => ({ id:`coin-${index}`, x:item[0], y:item[1], phase:index * 0.41 }));
 
 const enemies = [
-  { id:'puff-a', type:'puff', x:980, y:595, base:980, range:48, speed:0.55, dir:1, alive:true, phase:0.3 },
-  { id:'blob-a', type:'blob', x:1710, y:455, base:1710, range:48, speed:0.5, dir:-1, alive:true, phase:1.2 },
-  { id:'puff-b', type:'puff', x:2505, y:405, base:2505, range:46, speed:0.58, dir:1, alive:true, phase:2.2 },
-  { id:'blob-b', type:'blob', x:3310, y:485, base:3310, range:48, speed:0.52, dir:-1, alive:true, phase:3.2 },
-  { id:'puff-c', type:'puff', x:4170, y:450, base:4170, range:48, speed:0.6, dir:1, alive:true, phase:4.1 }
+  { id:'puff-a', type:'puff', platform:'c3', x:1115, range:45, dir:1, speed:0.52, alive:true, phase:0.4 },
+  { id:'blob-a', type:'blob', platform:'c6', x:2250, range:48, dir:-1, speed:0.48, alive:true, phase:1.3 },
+  { id:'puff-b', type:'puff', platform:'c11', x:3745, range:46, dir:1, speed:0.56, alive:true, phase:2.2 }
 ];
 
 const backgroundPlanets = [
-  { x:420, y:160, r:96, c1:'#5f50bd', c2:'#332b78', ring:'#8b78e5', parallax:0.13, phase:0.1 },
-  { x:1910, y:125, r:62, c1:'#4192d0', c2:'#27518c', ring:'#91d7ff', parallax:0.17, phase:1.4 },
-  { x:3520, y:170, r:108, c1:'#7b5bd7', c2:'#443084', ring:'#a38bff', parallax:0.12, phase:2.4 },
-  { x:5080, y:160, r:84, c1:'#d066b1', c2:'#713d8b', ring:'#f3a7dd', parallax:0.15, phase:3.1 }
+  { x:450, y:150, r:98, c1:'#6d58c9', c2:'#352a7b', ring:'#9c87ed', parallax:0.12, phase:0.1 },
+  { x:1860, y:120, r:66, c1:'#4f9bd7', c2:'#29568e', ring:'#9edcff', parallax:0.17, phase:1.3 },
+  { x:3470, y:165, r:112, c1:'#7c5ddd', c2:'#403084', ring:'#aa94ff', parallax:0.11, phase:2.4 },
+  { x:4930, y:150, r:86, c1:'#d872ba', c2:'#733d8d', ring:'#f2b0e0', parallax:0.14, phase:3.2 }
 ];
 
 const state = {
@@ -81,23 +81,26 @@ const state = {
   collected:new Set(),
   visited:new Set(),
   currentProject:null,
-  checkpoint:{ x:200, y:0 },
+  checkpoint:{ x:250, y:0 },
   audio:null,
   particles:[],
   stars:[],
   backgroundClouds:[],
   lastHit:0,
   lastOpen:0,
+  lastFrame:performance.now(),
   toastTimer:null,
-  startTime:performance.now(),
-  lastFrame:performance.now()
+  finished:false,
+  finishInterval:null,
+  finishTimeout:null,
+  finishSeconds:5
 };
 
 const player = {
-  x:200,
+  x:250,
   y:0,
-  w:94,
-  h:128,
+  w:96,
+  h:132,
   vx:0,
   vy:0,
   facing:1,
@@ -105,19 +108,35 @@ const player = {
   jumpLatch:false,
   runPhase:0,
   squash:0,
-  standingProject:null
+  standingProject:null,
+  landingTimer:0
 };
 
-const astronautImages = {
-  idle:new Image(),
-  run:new Image(),
-  jump:new Image()
+const images = {};
+const imageSources = {
+  cloudHappy:'./assets/cloud-happy.svg',
+  cloudSoft:'./assets/cloud-soft.svg',
+  cloudWide:'./assets/cloud-wide.svg',
+  coin:'./assets/star-coin.svg',
+  puff:'./assets/enemy-puff.svg',
+  blob:'./assets/enemy-blob.svg',
+  flag:'./assets/finish-flag.svg',
+  astronautIdle:'./assets/astronaut-idle.svg',
+  astronautRun:'./assets/astronaut-run.svg',
+  astronautJump:'./assets/astronaut-jump.svg',
+  astronautFall:'./assets/astronaut-fall.svg',
+  astronautLand:'./assets/astronaut-land.svg'
 };
-astronautImages.idle.src = './assets/astronaut-idle.svg';
-astronautImages.run.src = './assets/astronaut-run.svg';
-astronautImages.jump.src = './assets/astronaut-jump.svg';
 
-const storageKey = 'wai-project-orbit-hard-cartoon';
+projects.forEach(project => {
+  imageSources[`planet-${project.id}`] = project.asset;
+});
+
+Object.entries(imageSources).forEach(([key, src]) => {
+  const image = new Image();
+  image.src = src;
+  images[key] = image;
+});
 
 function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
@@ -127,47 +146,38 @@ function lerp(a, b, amount) {
   return a + (b - a) * amount;
 }
 
-function roundedRect(x, y, w, h, r) {
-  ctx.beginPath();
-  ctx.roundRect(x, y, w, h, r);
+function cloudHeight(platform) {
+  return platform.w * (platform.type === 'wide' ? 170 / 360 : 150 / 280);
+}
+
+function platformSurface(platform) {
+  return platform.y - cloudHeight(platform) * 0.25;
+}
+
+function projectSurface(project) {
+  return project.y - project.radius * 0.72;
+}
+
+function getPlatform(id) {
+  return platforms.find(platform => platform.id === id);
 }
 
 function seedDecor() {
-  state.stars = Array.from({ length:260 }, (_, index) => ({
+  state.stars = Array.from({ length:280 }, (_, index) => ({
     x:Math.random() * world.width,
     y:Math.random() * 430,
-    r:0.6 + Math.random() * 2.4,
+    r:0.6 + Math.random() * 2.5,
     a:0.35 + Math.random() * 0.65,
     phase:index * 0.27 + Math.random() * 3
   }));
-  state.backgroundClouds = Array.from({ length:22 }, (_, index) => ({
-    x:index * 255 + Math.random() * 140,
-    y:120 + Math.random() * 290,
-    s:0.48 + Math.random() * 0.7,
-    parallax:0.12 + Math.random() * 0.16,
+  state.backgroundClouds = Array.from({ length:24 }, (_, index) => ({
+    x:index * 230 + Math.random() * 150,
+    y:115 + Math.random() * 300,
+    s:0.42 + Math.random() * 0.72,
+    parallax:0.11 + Math.random() * 0.15,
     face:index % 5 === 0,
-    phase:index * 0.64
+    phase:index * 0.61
   }));
-}
-
-function getStartPlatform() {
-  return platforms[0];
-}
-
-function resetPlayerToCheckpoint() {
-  player.x = state.checkpoint.x;
-  player.y = state.checkpoint.y;
-  player.vx = 0;
-  player.vy = 0;
-  player.onGround = false;
-  player.standingProject = null;
-}
-
-function initializePlayer() {
-  const start = getStartPlatform();
-  state.checkpoint.x = start.x - 35;
-  state.checkpoint.y = start.y - player.h;
-  resetPlayerToCheckpoint();
 }
 
 function resize() {
@@ -182,31 +192,28 @@ function resize() {
   ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
 }
 
-function saveGame() {
-  localStorage.setItem(storageKey, JSON.stringify({
-    x:player.x,
-    y:player.y,
-    lives:state.lives,
-    collected:[...state.collected],
-    visited:[...state.visited],
-    checkpoint:state.checkpoint
-  }));
+function resetPlayerToCheckpoint() {
+  player.x = state.checkpoint.x;
+  player.y = state.checkpoint.y;
+  player.vx = 0;
+  player.vy = 0;
+  player.onGround = false;
+  player.standingProject = null;
 }
 
-function loadGame() {
-  try {
-    const raw = localStorage.getItem(storageKey);
-    if (!raw) return;
-    const data = JSON.parse(raw);
-    if (typeof data.lives === 'number') state.lives = clamp(data.lives, 1, 3);
-    if (Array.isArray(data.collected)) state.collected = new Set(data.collected);
-    if (Array.isArray(data.visited)) state.visited = new Set(data.visited);
-    if (data.checkpoint && typeof data.checkpoint.x === 'number' && typeof data.checkpoint.y === 'number') state.checkpoint = data.checkpoint;
-    if (typeof data.x === 'number' && typeof data.y === 'number') {
-      player.x = data.x;
-      player.y = data.y;
-    }
-  } catch {}
+function initializeRun() {
+  const start = getPlatform('start');
+  state.lives = 3;
+  state.collected.clear();
+  state.visited.clear();
+  state.currentProject = null;
+  state.finished = false;
+  enemies.forEach(enemy => enemy.alive = true);
+  state.checkpoint.x = start.x - player.w * 0.5;
+  state.checkpoint.y = platformSurface(start) - player.h - 2;
+  resetPlayerToCheckpoint();
+  state.cameraX = 0;
+  updateHud();
 }
 
 function updateHud() {
@@ -230,7 +237,7 @@ function playJumpSound() {
   const osc = state.audio.createOscillator();
   const gain = state.audio.createGain();
   osc.type = 'triangle';
-  osc.frequency.setValueAtTime(690, now);
+  osc.frequency.setValueAtTime(700, now);
   osc.frequency.exponentialRampToValueAtTime(350, now + 0.11);
   gain.gain.setValueAtTime(0.0001, now);
   gain.gain.exponentialRampToValueAtTime(0.07, now + 0.012);
@@ -260,30 +267,24 @@ function closeInfoModal() {
 
 function startGame() {
   if (state.mode === 'playing') return;
+  initializeRun();
   state.mode = 'playing';
   startUi.classList.add('is-hidden');
   gameLogo.classList.remove('is-hidden');
   pauseButton.classList.remove('is-hidden');
   if (matchMedia('(max-width: 900px)').matches) mobileControls.classList.remove('is-hidden');
-  showToast('Welcome to Project Orbit ★');
+  showToast('Jump to the first planet ★');
 }
 
 function togglePause() {
-  if (state.mode === 'start') return;
+  if (state.mode === 'start' || state.finished) return;
   state.mode = state.mode === 'paused' ? 'playing' : 'paused';
   pauseButton.textContent = state.mode === 'paused' ? '▶' : 'Ⅱ';
   showToast(state.mode === 'paused' ? 'Paused' : 'Back to orbit');
 }
 
 function resetRun() {
-  localStorage.removeItem(storageKey);
-  state.lives = 3;
-  state.collected.clear();
-  state.visited.clear();
-  enemies.forEach(enemy => enemy.alive = true);
-  initializePlayer();
-  state.cameraX = 0;
-  updateHud();
+  initializeRun();
   showToast('Orbit reset ★');
 }
 
@@ -306,7 +307,7 @@ function setupInput() {
     state.keys.add(key);
     if (state.mode === 'start' && (key === 'enter' || key === ' ')) startGame();
     if (state.mode === 'playing' && (key === 'e' || key === 'enter')) openCurrentProject();
-    if (key === 'r') resetRun();
+    if (key === 'r' && !state.finished) resetRun();
     if (key === 'escape') closeInfoModal();
     if (key === 'p') togglePause();
   }, { passive:false });
@@ -343,830 +344,539 @@ function setupInput() {
   infoModal.addEventListener('click', event => {
     if (event.target === infoModal) closeInfoModal();
   });
-  settingsButton.addEventListener('click', () => openModal('How to play', `<b>Move:</b> A / D or arrow keys<br><b>Jump:</b> SPACE, W or ↑<br><b>Open project:</b> land on a smiling planet and press E<br><b>Goal:</b> collect stars and visit all six project planets<br><b>Clouds:</b> use the cloud stairs to climb and descend<br><b>Creatures:</b> jump on them from above<br><b>Reset:</b> R<br><br>The only sound effect is the jump.`));
-  achievementsButton.addEventListener('click', () => openModal('Achievements', `<b>${state.visited.size} / ${projects.length}</b> project planets visited<br><b>${state.collected.size} / ${coinData.length}</b> star coins collected<br><b>${state.lives}</b> hearts remaining`));
-  characterButton.addEventListener('click', () => openModal('Astro WAI', `A tiny explorer built to turn a portfolio into a playful journey.<br><br>She starts on a cloud, climbs cloud stairways, jumps across project planets, collects stars and discovers each destination.`));
+  settingsButton.addEventListener('click', () => openModal('How to play', `<b>Move:</b> A / D or arrow keys<br><b>Jump:</b> SPACE, W or ↑<br><b>Project:</b> land on a smiling planet and press E<br><b>Enemies:</b> jump on them from above<br><b>Finish:</b> reach the final flag<br><br>The only sound effect is the jump.`));
+  achievementsButton.addEventListener('click', () => openModal('Achievements', `<b>${state.visited.size} / ${projects.length}</b> project planets opened<br><b>${state.collected.size} / ${coinData.length}</b> star coins collected<br><b>${state.lives}</b> hearts remaining`));
+  characterButton.addEventListener('click', () => openModal('Astro WAI', `A tiny astronaut built to turn a portfolio into a playful journey.<br><br>She runs, jumps on cloud stairs, collects stars, lands on project planets and reaches GitHub at the end.`));
+  finishNowButton.addEventListener('click', returnToGitHub);
 }
 
-function spawnSparkles(x, y, color, amount=12, speed=2.6) {
-  for (let i=0; i<amount; i++) {
+function spawnSparkles(x, y, color='#ffd45f', count=8) {
+  for (let i=0;i<count;i+=1) {
     const angle = Math.random() * Math.PI * 2;
-    const velocity = 0.5 + Math.random() * speed;
+    const speed = 1.5 + Math.random() * 3;
     state.particles.push({
-      x,y,
-      vx:Math.cos(angle) * velocity,
-      vy:Math.sin(angle) * velocity - 0.8,
-      life:1,
-      decay:0.018 + Math.random() * 0.02,
+      x,
+      y,
+      vx:Math.cos(angle) * speed,
+      vy:Math.sin(angle) * speed - 1.5,
+      life:40 + Math.random() * 24,
+      maxLife:64,
       size:2 + Math.random() * 4,
       color
     });
   }
 }
 
-function updateParticles(dt) {
-  for (const particle of state.particles) {
-    particle.x += particle.vx * dt;
-    particle.y += particle.vy * dt;
-    particle.vy += 0.035 * dt;
-    particle.life -= particle.decay * dt;
-  }
+function updateParticles() {
+  state.particles.forEach(particle => {
+    particle.x += particle.vx;
+    particle.y += particle.vy;
+    particle.vy += 0.06;
+    particle.life -= 1;
+  });
   state.particles = state.particles.filter(particle => particle.life > 0);
 }
 
-function updatePlayer(dt) {
+function updatePlayer() {
   const left = wantsLeft();
   const right = wantsRight();
   const jump = wantsJump();
 
   if (left) {
-    player.vx -= world.moveAcceleration * dt;
+    player.vx -= world.moveAcceleration;
     player.facing = -1;
   }
   if (right) {
-    player.vx += world.moveAcceleration * dt;
+    player.vx += world.moveAcceleration;
     player.facing = 1;
   }
-  if (!left && !right) player.vx *= Math.pow(world.friction, dt);
+  if (!left && !right) player.vx *= world.friction;
 
   player.vx = clamp(player.vx, -world.maxSpeed, world.maxSpeed);
+  if (Math.abs(player.vx) < 0.04) player.vx = 0;
 
-  const jumpPressed = jump && !player.jumpLatch;
-  if (jumpPressed && player.onGround) {
+  const justJumped = jump && !player.jumpLatch;
+  if (justJumped && player.onGround) {
     player.vy = -world.jumpPower;
     player.onGround = false;
-    player.squash = 1;
+    player.squash = 0.14;
     playJumpSound();
-    spawnSparkles(player.x + player.w / 2, player.y + player.h, '#ffd766', 12, 2.2);
+    spawnSparkles(player.x + player.w * 0.5, player.y + player.h, '#fff0a5', 6);
   }
   player.jumpLatch = jump;
 
-  const previousBottom = player.y + player.h;
-  player.vy += world.gravity * dt;
-  player.x += player.vx * dt;
-  player.y += player.vy * dt;
+  const previousFeet = player.y + player.h;
+  player.vy += world.gravity;
+  player.x += player.vx;
+  player.y += player.vy;
   player.x = clamp(player.x, 0, world.width - player.w);
   player.onGround = false;
   player.standingProject = null;
 
-  resolveCloudCollisions(previousBottom);
-  resolveProjectCollisions(previousBottom);
+  resolveCloudCollisions(previousFeet);
+  resolveProjectCollisions(previousFeet);
   collectCoins();
-  updateEnemies(dt);
-  checkEnemyCollisions(previousBottom);
+  updateEnemies();
+  checkEnemyCollisions();
+  checkFinish();
 
-  if (Math.abs(player.vx) > 0.15 && player.onGround) player.runPhase += 0.13 * dt;
-  player.squash = Math.max(0, player.squash - 0.08 * dt);
+  if (player.y > world.fallLimit) loseHeart('Careful, little astronaut!');
 
-  if (player.y > world.fallLimit) loseHeart('Fell into the clouds');
+  if (player.onGround && Math.abs(player.vx) > 0.2) player.runPhase += Math.abs(player.vx) * 0.055;
+  if (player.landingTimer > 0) player.landingTimer -= 1;
+  player.squash = lerp(player.squash, 0, 0.16);
 }
 
-function resolveCloudCollisions(previousBottom) {
-  const feetX = player.x + player.w / 2;
-  const currentBottom = player.y + player.h;
-  for (const platform of platforms) {
-    const bob = Math.sin(performance.now() * 0.0017 + platform.phase) * 2.5;
-    const top = platform.y + bob;
-    const left = platform.x - platform.w / 2;
-    const right = platform.x + platform.w / 2;
-    if (feetX >= left && feetX <= right && previousBottom <= top + 8 && currentBottom >= top && player.vy >= 0) {
-      player.y = top - player.h;
-      player.vy = 0;
-      if (!player.onGround && currentBottom - previousBottom > 1) player.squash = 0.7;
-      player.onGround = true;
-    }
-  }
-}
+function resolveCloudCollisions(previousFeet) {
+  const feetX = player.x + player.w * 0.5;
+  const feetY = player.y + player.h;
 
-function resolveProjectCollisions(previousBottom) {
-  const feetX = player.x + player.w / 2;
-  const currentBottom = player.y + player.h;
-  for (const project of projects) {
-    const bob = Math.sin(performance.now() * 0.0015 + project.phase) * 5;
-    const top = project.y + bob - project.radius * 0.72;
-    const left = project.x - project.radius * 0.76;
-    const right = project.x + project.radius * 0.76;
-    if (feetX >= left && feetX <= right && previousBottom <= top + 8 && currentBottom >= top && player.vy >= 0) {
-      player.y = top - player.h;
+  platforms.forEach(platform => {
+    const surface = platformSurface(platform);
+    const left = platform.x - platform.w * 0.42;
+    const right = platform.x + platform.w * 0.42;
+    if (feetX >= left && feetX <= right && previousFeet <= surface + 8 && feetY >= surface && player.vy >= 0) {
+      player.y = surface - player.h;
+      if (player.vy > 4) {
+        player.landingTimer = 10;
+        player.squash = 0.18;
+        spawnSparkles(feetX, surface, '#dff6ff', 5);
+      }
       player.vy = 0;
       player.onGround = true;
-      player.standingProject = project;
-      state.currentProject = project;
-      state.checkpoint = { x:project.x - player.w / 2, y:top - player.h };
-      showProjectPrompt(project);
     }
-  }
-  if (!player.standingProject && state.currentProject) {
-    const distance = Math.abs(player.x + player.w / 2 - state.currentProject.x);
-    if (distance > state.currentProject.radius + 90) hideProjectPrompt();
-  }
+  });
 }
 
-function showProjectPrompt(project) {
-  projectName.textContent = project.name;
-  projectDescription.textContent = project.subtitle;
-  projectPrompt.classList.remove('is-hidden');
+function resolveProjectCollisions(previousFeet) {
+  const feetX = player.x + player.w * 0.5;
+  const feetY = player.y + player.h;
+
+  projects.forEach(project => {
+    const surface = projectSurface(project);
+    const left = project.x - project.radius * 0.67;
+    const right = project.x + project.radius * 0.67;
+    if (feetX >= left && feetX <= right && previousFeet <= surface + 9 && feetY >= surface && player.vy >= 0) {
+      player.y = surface - player.h;
+      if (player.vy > 4) {
+        player.landingTimer = 10;
+        player.squash = 0.18;
+        spawnSparkles(feetX, surface, '#ffd36a', 8);
+      }
+      player.vy = 0;
+      player.onGround = true;
+      player.standingProject = project.id;
+      state.checkpoint.x = project.x - player.w * 0.5;
+      state.checkpoint.y = surface - player.h - 2;
+    }
+  });
 }
 
-function hideProjectPrompt() {
-  projectPrompt.classList.add('is-hidden');
-  state.currentProject = null;
+function collectCoins() {
+  const px = player.x + player.w * 0.5;
+  const py = player.y + player.h * 0.45;
+  coinData.forEach(coin => {
+    if (state.collected.has(coin.id)) return;
+    if (Math.hypot(px - coin.x, py - coin.y) < 38) {
+      state.collected.add(coin.id);
+      spawnSparkles(coin.x, coin.y, '#ffd34f', 10);
+      updateHud();
+    }
+  });
+}
+
+function updateEnemies() {
+  enemies.forEach(enemy => {
+    if (!enemy.alive) return;
+    const platform = getPlatform(enemy.platform);
+    if (!platform) return;
+    enemy.x += enemy.dir * enemy.speed;
+    const edge = platform.w * 0.27;
+    if (enemy.x > platform.x + edge || enemy.x < platform.x - edge) enemy.dir *= -1;
+    enemy.y = platformSurface(platform) - 53;
+  });
+}
+
+function checkEnemyCollisions() {
+  const now = performance.now();
+  enemies.forEach(enemy => {
+    if (!enemy.alive || now - state.lastHit < 700) return;
+    const ex = enemy.x - 31;
+    const ey = enemy.y - 28;
+    const ew = 62;
+    const eh = 58;
+    const overlap = player.x < ex + ew && player.x + player.w > ex && player.y < ey + eh && player.y + player.h > ey;
+    if (!overlap) return;
+    const playerFeet = player.y + player.h;
+    if (player.vy > 1.5 && playerFeet - player.vy <= ey + 16) {
+      enemy.alive = false;
+      player.vy = -11.5;
+      player.onGround = false;
+      spawnSparkles(enemy.x, enemy.y, '#d7b0ff', 14);
+      showToast('Boing! ★');
+    } else {
+      state.lastHit = now;
+      loseHeart('Ouch! One heart lost.');
+    }
+  });
+}
+
+function loseHeart(message) {
+  if (state.finished) return;
+  state.lives -= 1;
+  if (state.lives <= 0) {
+    state.lives = 3;
+    const start = getPlatform('start');
+    state.checkpoint.x = start.x - player.w * 0.5;
+    state.checkpoint.y = platformSurface(start) - player.h - 2;
+    showToast('New try ♥');
+  } else {
+    showToast(message);
+  }
+  updateHud();
+  resetPlayerToCheckpoint();
+}
+
+function updateProjectPrompt() {
+  const project = projects.find(item => item.id === player.standingProject) || null;
+  state.currentProject = project;
+  if (project && state.mode === 'playing') {
+    projectPrompt.classList.remove('is-hidden');
+    projectName.textContent = project.name;
+    projectDescription.textContent = project.subtitle;
+    openProjectButton.textContent = state.visited.has(project.id) ? 'OPEN AGAIN ↗' : 'OPEN PROJECT ↗';
+  } else {
+    projectPrompt.classList.add('is-hidden');
+  }
 }
 
 function openCurrentProject() {
   if (state.mode !== 'playing' || !state.currentProject) return;
   const now = performance.now();
-  if (now - state.lastOpen < 600) return;
+  if (now - state.lastOpen < 450) return;
   state.lastOpen = now;
   const project = state.currentProject;
   state.visited.add(project.id);
-  spawnSparkles(project.x, project.y - project.radius, '#fff2a2', 26, 4.2);
-  showToast(`${project.name} unlocked ★`, 1800);
-  saveGame();
+  spawnSparkles(project.x, project.y - project.radius, '#fff0a1', 18);
+  showToast(`${project.name} opened ★`);
   window.open(project.url, '_blank', 'noopener,noreferrer');
 }
 
-function collectCoins() {
-  const cx = player.x + player.w / 2;
-  const cy = player.y + player.h / 2;
-  for (const coin of coinData) {
-    if (state.collected.has(coin.id)) continue;
-    if (Math.hypot(cx - coin.x, cy - coin.y) < 42) {
-      state.collected.add(coin.id);
-      spawnSparkles(coin.x, coin.y, '#ffd35d', 16, 3.2);
-      updateHud();
-      saveGame();
-    }
-  }
+function checkFinish() {
+  if (state.finished) return;
+  const finish = getPlatform('finish');
+  const surface = platformSurface(finish);
+  const centerX = player.x + player.w * 0.5;
+  const feet = player.y + player.h;
+  if (player.onGround && centerX > finish.x - finish.w * 0.34 && centerX < finish.x + finish.w * 0.36 && Math.abs(feet - surface) < 12) completeGame();
 }
 
-function updateEnemies(dt) {
-  for (const enemy of enemies) {
-    if (!enemy.alive) continue;
-    enemy.x += enemy.dir * enemy.speed * dt;
-    if (enemy.x > enemy.base + enemy.range) enemy.dir = -1;
-    if (enemy.x < enemy.base - enemy.range) enemy.dir = 1;
-  }
+function completeGame() {
+  state.finished = true;
+  state.mode = 'finished';
+  state.keys.clear();
+  state.touch.left = false;
+  state.touch.right = false;
+  state.touch.jump = false;
+  mobileControls.classList.add('is-hidden');
+  projectPrompt.classList.add('is-hidden');
+  pauseButton.classList.add('is-hidden');
+  finishText.textContent = `Mission complete · ${state.visited.size}/${projects.length} projects opened · ${state.collected.size}/${coinData.length} stars collected.`;
+  finishScreen.classList.remove('is-hidden');
+  state.finishSeconds = 5;
+  finishCountdown.textContent = `Returning to GitHub in ${state.finishSeconds}...`;
+  clearInterval(state.finishInterval);
+  clearTimeout(state.finishTimeout);
+  state.finishInterval = setInterval(() => {
+    state.finishSeconds -= 1;
+    finishCountdown.textContent = state.finishSeconds > 0 ? `Returning to GitHub in ${state.finishSeconds}...` : 'Opening GitHub...';
+  }, 1000);
+  state.finishTimeout = setTimeout(returnToGitHub, 5000);
 }
 
-function checkEnemyCollisions(previousBottom) {
-  const left = player.x + 12;
-  const right = player.x + player.w - 12;
-  const top = player.y + 10;
-  const bottom = player.y + player.h;
-  for (const enemy of enemies) {
-    if (!enemy.alive) continue;
-    const ew = 52;
-    const eh = 48;
-    const ex1 = enemy.x - ew / 2;
-    const ex2 = enemy.x + ew / 2;
-    const ey1 = enemy.y - eh;
-    const ey2 = enemy.y;
-    if (right < ex1 || left > ex2 || bottom < ey1 || top > ey2) continue;
-    if (player.vy > 0 && previousBottom <= ey1 + 14) {
-      enemy.alive = false;
-      player.vy = -11.5;
-      spawnSparkles(enemy.x, enemy.y - 18, '#ffb3e2', 18, 3.3);
-      showToast('Boing! ★');
-    } else {
-      loseHeart('Ouch! Cute space trouble');
-    }
-  }
-}
-
-function loseHeart(message) {
-  const now = performance.now();
-  if (now - state.lastHit < 900) return;
-  state.lastHit = now;
-  state.lives -= 1;
-  updateHud();
-  showToast(message);
-  if (state.lives <= 0) {
-    state.lives = 3;
-    state.checkpoint = { x:getStartPlatform().x - 35, y:getStartPlatform().y - player.h };
-    showToast('Three hearts restored ★', 1800);
-  }
-  resetPlayerToCheckpoint();
-  saveGame();
+function returnToGitHub() {
+  clearInterval(state.finishInterval);
+  clearTimeout(state.finishTimeout);
+  const separator = WAI_CONFIG.githubReturn.includes('?') ? '&' : '?';
+  location.replace(`${WAI_CONFIG.githubReturn}${separator}orbit=complete&v=${Date.now()}#readme`);
 }
 
 function updateCamera() {
-  const viewportWorldWidth = state.width / state.scale;
-  const target = clamp(player.x - viewportWorldWidth * 0.33, 0, world.width - viewportWorldWidth);
-  state.cameraX = lerp(state.cameraX, target, 0.08);
+  const visibleWorldWidth = state.width / state.scale;
+  const target = clamp(player.x - visibleWorldWidth * 0.31, 0, Math.max(0, world.width - visibleWorldWidth));
+  state.cameraX = lerp(state.cameraX, target, 0.085);
+}
+
+function drawImageCentered(image, x, y, w, h=w) {
+  if (!image || !image.complete || image.naturalWidth === 0) return;
+  ctx.drawImage(image, x - w * 0.5, y - h * 0.5, w, h);
 }
 
 function drawSky() {
   const gradient = ctx.createLinearGradient(0, 0, 0, state.height);
-  gradient.addColorStop(0, '#06113e');
-  gradient.addColorStop(0.48, '#122568');
-  gradient.addColorStop(1, '#735fc1');
+  gradient.addColorStop(0, '#07103a');
+  gradient.addColorStop(0.5, '#132967');
+  gradient.addColorStop(1, '#8066d4');
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, state.width, state.height);
 
-  const glow = ctx.createRadialGradient(state.width * 0.54, state.height * 0.5, 0, state.width * 0.54, state.height * 0.5, state.width * 0.7);
-  glow.addColorStop(0, 'rgba(58,115,255,.18)');
-  glow.addColorStop(0.55, 'rgba(121,80,216,.08)');
-  glow.addColorStop(1, 'rgba(0,0,0,0)');
+  const glow = ctx.createRadialGradient(state.width * 0.48, state.height * 0.36, 20, state.width * 0.48, state.height * 0.36, state.width * 0.55);
+  glow.addColorStop(0, 'rgba(69,125,255,.22)');
+  glow.addColorStop(0.45, 'rgba(94,82,207,.12)');
+  glow.addColorStop(1, 'rgba(8,12,45,0)');
   ctx.fillStyle = glow;
   ctx.fillRect(0, 0, state.width, state.height);
 
-  drawParallaxStars();
-  drawBackgroundPlanets();
-  drawBackgroundClouds();
-  drawNebulaBands();
-}
-
-function drawParallaxStars() {
-  const time = performance.now() * 0.001;
-  for (const star of state.stars) {
-    const x = star.x - state.cameraX * 0.16;
-    if (x < -20 || x > state.width + 20) continue;
-    const alpha = clamp(star.a + Math.sin(time * 1.8 + star.phase) * 0.23, 0.12, 1);
+  ctx.save();
+  ctx.scale(state.scale, state.scale);
+  state.stars.forEach(star => {
+    const x = star.x - state.cameraX * 0.12;
+    if (x < -20 || x > state.width / state.scale + 20) return;
+    const alpha = star.a * (0.7 + Math.sin(performance.now() * 0.002 + star.phase) * 0.3);
     ctx.fillStyle = `rgba(255,255,255,${alpha})`;
     ctx.beginPath();
     ctx.arc(x, star.y, star.r, 0, Math.PI * 2);
     ctx.fill();
-    if (star.r > 2.3) drawSparkle(x, star.y, star.r * 2.5, `rgba(255,238,174,${alpha * .7})`);
-  }
-}
-
-function drawSparkle(x, y, size, color) {
-  ctx.save();
-  ctx.translate(x, y);
-  ctx.fillStyle = color;
-  ctx.beginPath();
-  ctx.moveTo(0, -size);
-  ctx.quadraticCurveTo(size * .18, -size * .18, size, 0);
-  ctx.quadraticCurveTo(size * .18, size * .18, 0, size);
-  ctx.quadraticCurveTo(-size * .18, size * .18, -size, 0);
-  ctx.quadraticCurveTo(-size * .18, -size * .18, 0, -size);
-  ctx.fill();
+  });
+  backgroundPlanets.forEach(planet => drawBackgroundPlanet(planet));
+  state.backgroundClouds.forEach(cloud => drawBackgroundCloud(cloud));
   ctx.restore();
 }
 
-function drawBackgroundPlanets() {
-  for (const planet of backgroundPlanets) {
-    const x = planet.x - state.cameraX * planet.parallax;
-    const y = planet.y + Math.sin(performance.now() * 0.0005 + planet.phase) * 5;
-    if (x < -planet.r * 3 || x > state.width + planet.r * 3) continue;
-    ctx.save();
-    ctx.translate(x, y);
-    ctx.rotate(-0.18);
-    ctx.strokeStyle = planet.ring;
-    ctx.globalAlpha = 0.5;
-    ctx.lineWidth = 10;
-    ctx.beginPath();
-    ctx.ellipse(0, 0, planet.r * 1.48, planet.r * .4, 0, 0, Math.PI * 2);
-    ctx.stroke();
-    ctx.globalAlpha = 1;
-    ctx.rotate(0.18);
-    const gradient = ctx.createRadialGradient(-planet.r * .35, -planet.r * .35, planet.r * .08, 0, 0, planet.r);
-    gradient.addColorStop(0, planet.c1);
-    gradient.addColorStop(1, planet.c2);
-    ctx.fillStyle = gradient;
-    ctx.beginPath();
-    ctx.arc(0, 0, planet.r, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.globalAlpha = 0.16;
-    ctx.fillStyle = '#fff';
-    ctx.beginPath();
-    ctx.ellipse(-planet.r * .25, -planet.r * .32, planet.r * .38, planet.r * .2, -0.4, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.restore();
-  }
-}
-
-function drawBackgroundClouds() {
-  for (const cloud of state.backgroundClouds) {
-    const x = cloud.x - state.cameraX * cloud.parallax;
-    const y = cloud.y + Math.sin(performance.now() * 0.0008 + cloud.phase) * 4;
-    if (x < -180 || x > state.width + 180) continue;
-    drawCloudShape(x, y, 115 * cloud.s, 0.3, cloud.face, true);
-  }
-}
-
-function drawNebulaBands() {
-  const base = state.height * 0.78;
-  for (let layer=0; layer<3; layer++) {
-    ctx.save();
-    ctx.globalAlpha = 0.18 + layer * 0.06;
-    ctx.fillStyle = ['#8f6de0','#b48ce8','#d4a9ef'][layer];
-    ctx.beginPath();
-    ctx.moveTo(0, state.height);
-    for (let x=-100; x<=state.width+100; x+=60) {
-      const worldX = x + state.cameraX * (0.12 + layer * 0.06);
-      const y = base + layer * 48 + Math.sin(worldX * 0.004 + layer) * (34 + layer * 8);
-      ctx.lineTo(x, y);
-    }
-    ctx.lineTo(state.width, state.height);
-    ctx.closePath();
-    ctx.fill();
-    ctx.restore();
-  }
-}
-
-function drawCloudShape(x, y, width, alpha=1, face=false, soft=false) {
-  const h = width * 0.34;
+function drawBackgroundPlanet(planet) {
+  const x = planet.x - state.cameraX * planet.parallax;
+  if (x < -planet.r * 2 || x > state.width / state.scale + planet.r * 2) return;
   ctx.save();
-  ctx.translate(x, y);
-  ctx.globalAlpha = alpha;
-  ctx.shadowColor = soft ? 'rgba(68,67,133,.16)' : 'rgba(44,38,107,.3)';
-  ctx.shadowBlur = soft ? 10 : 16;
-  ctx.shadowOffsetY = soft ? 4 : 8;
-  const gradient = ctx.createLinearGradient(0, -h, 0, h);
-  gradient.addColorStop(0, '#ffffff');
-  gradient.addColorStop(0.58, '#f6f8ff');
-  gradient.addColorStop(1, '#d7e7ff');
+  ctx.translate(x, planet.y + Math.sin(performance.now() * 0.0007 + planet.phase) * 5);
+  ctx.rotate(-0.18);
+  ctx.strokeStyle = planet.ring;
+  ctx.globalAlpha = 0.45;
+  ctx.lineWidth = 14;
+  ctx.beginPath();
+  ctx.ellipse(0, 0, planet.r * 1.35, planet.r * 0.34, 0, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.rotate(0.18);
+  const gradient = ctx.createRadialGradient(-planet.r * 0.3, -planet.r * 0.35, 10, 0, 0, planet.r);
+  gradient.addColorStop(0, planet.c1);
+  gradient.addColorStop(1, planet.c2);
   ctx.fillStyle = gradient;
-  ctx.strokeStyle = soft ? 'rgba(196,213,255,.35)' : '#c6dbff';
-  ctx.lineWidth = soft ? 2 : 4;
-  const lobes = [
-    [-width*.33,0,width*.19],[-width*.16,-h*.28,width*.24],[width*.07,-h*.42,width*.28],[width*.29,-h*.08,width*.22],[width*.12,h*.08,width*.31],[-width*.13,h*.12,width*.28]
-  ];
-  for (const [lx,ly,r] of lobes) {
-    ctx.beginPath();
-    ctx.arc(lx, ly, r, 0, Math.PI * 2);
-    ctx.fill();
-    if (!soft) ctx.stroke();
-  }
-  if (face) {
-    ctx.shadowBlur = 0;
-    ctx.globalAlpha = alpha;
-    ctx.fillStyle = '#2c2b59';
-    ctx.beginPath();
-    ctx.arc(-width*.07, h*.02, Math.max(2.2,width*.026), 0, Math.PI*2);
-    ctx.arc(width*.07, h*.02, Math.max(2.2,width*.026), 0, Math.PI*2);
-    ctx.fill();
-    ctx.strokeStyle = '#2c2b59';
-    ctx.lineWidth = Math.max(2,width*.018);
-    ctx.beginPath();
-    ctx.arc(0, h*.08, width*.075, 0.15, Math.PI - 0.15);
-    ctx.stroke();
-    ctx.fillStyle = '#ffabc3';
-    ctx.beginPath();
-    ctx.ellipse(-width*.15,h*.08,width*.045,width*.024,0,0,Math.PI*2);
-    ctx.ellipse(width*.15,h*.08,width*.045,width*.024,0,0,Math.PI*2);
-    ctx.fill();
-  }
+  ctx.globalAlpha = 0.46;
+  ctx.beginPath();
+  ctx.arc(0, 0, planet.r, 0, Math.PI * 2);
+  ctx.fill();
   ctx.restore();
 }
 
-function drawPlatforms() {
-  for (const platform of platforms) {
-    const x = platform.x - state.cameraX;
-    if (x < -220 || x > state.width / state.scale + 220) continue;
-    const bob = Math.sin(performance.now() * 0.0017 + platform.phase) * 2.5;
-    drawCloudShape(x, platform.y + bob, platform.w, 1, platform.face, false);
-  }
-}
-
-function drawStartSign() {
-  const x = 65 - state.cameraX;
-  const y = 570;
+function drawBackgroundCloud(cloud) {
+  const x = cloud.x - state.cameraX * cloud.parallax;
+  const visibleWidth = state.width / state.scale;
+  if (x < -180 || x > visibleWidth + 180) return;
+  const y = cloud.y + Math.sin(performance.now() * 0.001 + cloud.phase) * 5;
+  const image = cloud.face ? images.cloudHappy : images.cloudSoft;
   ctx.save();
-  ctx.translate(x, y);
-  ctx.fillStyle = '#9b603a';
-  roundedRect(0, 0, 116, 72, 10);
-  ctx.fill();
-  ctx.fillStyle = '#d98d50';
-  roundedRect(7, 7, 102, 58, 8);
-  ctx.fill();
-  ctx.strokeStyle = 'rgba(95,54,36,.45)';
-  ctx.lineWidth = 3;
-  ctx.beginPath();
-  ctx.moveTo(18,24);ctx.lineTo(96,24);ctx.moveTo(18,48);ctx.lineTo(96,48);
-  ctx.stroke();
-  ctx.fillStyle = '#4b2c29';
-  ctx.font = '900 20px Trebuchet MS, Arial';
-  ctx.textAlign = 'center';
-  ctx.fillText('START', 58, 31);
-  ctx.font = '900 30px Trebuchet MS, Arial';
-  ctx.fillText('→', 58, 58);
-  ctx.fillStyle = '#7c4d33';
-  ctx.fillRect(50,72,16,70);
+  ctx.globalAlpha = 0.22;
+  drawImageCentered(image, x, y, 170 * cloud.s, 92 * cloud.s);
   ctx.restore();
-}
-
-function drawProjectPlanet(project) {
-  const bob = Math.sin(performance.now() * 0.0015 + project.phase) * 5;
-  const x = project.x - state.cameraX;
-  const y = project.y + bob;
-  if (x < -260 || x > state.width / state.scale + 260) return;
-
-  ctx.save();
-  ctx.translate(x, y);
-  ctx.shadowColor = 'rgba(22,18,73,.35)';
-  ctx.shadowBlur = 22;
-  ctx.shadowOffsetY = 14;
-
-  ctx.save();
-  ctx.rotate(-0.12 + Math.sin(performance.now() * 0.0008 + project.phase) * 0.03);
-  ctx.strokeStyle = project.ring;
-  ctx.lineWidth = 16;
-  ctx.globalAlpha = 0.95;
-  ctx.beginPath();
-  ctx.ellipse(0, 0, project.radius * 1.35, project.radius * 0.35, 0, 0, Math.PI * 2);
-  ctx.stroke();
-  ctx.restore();
-
-  const gradient = ctx.createRadialGradient(-project.radius*.35,-project.radius*.38,project.radius*.08,0,0,project.radius);
-  gradient.addColorStop(0, project.colors[0]);
-  gradient.addColorStop(0.58, project.colors[1]);
-  gradient.addColorStop(1, project.colors[2]);
-  ctx.fillStyle = gradient;
-  ctx.strokeStyle = 'rgba(66,54,124,.75)';
-  ctx.lineWidth = 6;
-  ctx.beginPath();
-  ctx.arc(0, 0, project.radius, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.stroke();
-
-  ctx.shadowBlur = 0;
-  ctx.globalAlpha = 0.24;
-  ctx.fillStyle = '#fff';
-  ctx.beginPath();
-  ctx.ellipse(-project.radius*.3,-project.radius*.38,project.radius*.38,project.radius*.2,-0.45,0,Math.PI*2);
-  ctx.fill();
-  ctx.globalAlpha = 0.14;
-  for (let i=0; i<5; i++) {
-    ctx.beginPath();
-    ctx.arc((i-2)*project.radius*.22, Math.sin(i*1.8)*project.radius*.25, project.radius*(.07+(i%2)*.03),0,Math.PI*2);
-    ctx.fill();
-  }
-  ctx.globalAlpha = 1;
-
-  drawCuteFace(project.radius);
-
-  const badgeY = -project.radius - 32;
-  ctx.fillStyle = project.colors[1];
-  ctx.strokeStyle = '#fff3cf';
-  ctx.lineWidth = 4;
-  ctx.beginPath();
-  ctx.arc(0, badgeY, 24, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.stroke();
-  ctx.fillStyle = '#fff';
-  ctx.font = '1000 21px Trebuchet MS, Arial';
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  ctx.fillText(String(project.number), 0, badgeY + 1);
-
-  const cardW = project.name.length > 16 ? 190 : 168;
-  const cardY = project.radius + 24;
-  ctx.fillStyle = 'rgba(35,35,92,.94)';
-  ctx.strokeStyle = project.colors[0];
-  ctx.lineWidth = 3;
-  roundedRect(-cardW/2, cardY, cardW, 72, 18);
-  ctx.fill();
-  ctx.stroke();
-  ctx.fillStyle = '#fff';
-  ctx.font = '1000 16px Trebuchet MS, Arial';
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'alphabetic';
-  drawWrappedText(project.name, 0, cardY + 25, cardW - 20, 18, 2);
-  ctx.fillStyle = '#e8e5fb';
-  ctx.font = '700 11px Trebuchet MS, Arial';
-  drawWrappedText(project.subtitle, 0, cardY + 50, cardW - 18, 13, 2);
-
-  if (state.visited.has(project.id)) {
-    ctx.fillStyle = '#fff4bd';
-    ctx.strokeStyle = '#ffc64c';
-    ctx.lineWidth = 3;
-    roundedRect(-48, cardY + 82, 96, 26, 13);
-    ctx.fill();
-    ctx.stroke();
-    ctx.fillStyle = '#5a4675';
-    ctx.font = '1000 11px Trebuchet MS, Arial';
-    ctx.fillText('VISITED ★', 0, cardY + 100);
-  }
-  ctx.restore();
-}
-
-function drawCuteFace(radius) {
-  ctx.fillStyle = '#25254f';
-  ctx.beginPath();
-  ctx.ellipse(-radius*.2, -radius*.02, radius*.075, radius*.1, 0, 0, Math.PI*2);
-  ctx.ellipse(radius*.2, -radius*.02, radius*.075, radius*.1, 0, 0, Math.PI*2);
-  ctx.fill();
-  ctx.fillStyle = '#fff';
-  ctx.beginPath();
-  ctx.arc(-radius*.22,-radius*.055,radius*.023,0,Math.PI*2);
-  ctx.arc(radius*.18,-radius*.055,radius*.023,0,Math.PI*2);
-  ctx.fill();
-  ctx.strokeStyle = '#25254f';
-  ctx.lineWidth = Math.max(3, radius*.045);
-  ctx.lineCap = 'round';
-  ctx.beginPath();
-  ctx.arc(0, radius*.12, radius*.16, 0.15, Math.PI - .15);
-  ctx.stroke();
-  ctx.fillStyle = '#ff9bb7';
-  ctx.beginPath();
-  ctx.ellipse(-radius*.34,radius*.12,radius*.11,radius*.055,0,0,Math.PI*2);
-  ctx.ellipse(radius*.34,radius*.12,radius*.11,radius*.055,0,0,Math.PI*2);
-  ctx.fill();
-}
-
-function drawWrappedText(text, x, y, maxWidth, lineHeight, maxLines) {
-  const words = text.split(' ');
-  const lines = [];
-  let line = '';
-  for (const word of words) {
-    const test = line ? `${line} ${word}` : word;
-    if (ctx.measureText(test).width > maxWidth && line) {
-      lines.push(line);
-      line = word;
-    } else {
-      line = test;
-    }
-  }
-  if (line) lines.push(line);
-  lines.slice(0,maxLines).forEach((value,index) => ctx.fillText(value, x, y + index * lineHeight));
-}
-
-function drawCoins() {
-  for (const coin of coinData) {
-    if (state.collected.has(coin.id)) continue;
-    const x = coin.x - state.cameraX;
-    if (x < -50 || x > state.width / state.scale + 50) continue;
-    const y = coin.y + Math.sin(performance.now() * 0.003 + coin.phase) * 6;
-    ctx.save();
-    ctx.translate(x, y);
-    ctx.shadowColor = 'rgba(255,183,52,.7)';
-    ctx.shadowBlur = 16;
-    const gradient = ctx.createRadialGradient(-5,-6,2,0,0,19);
-    gradient.addColorStop(0,'#fff6a8');
-    gradient.addColorStop(.4,'#ffd25a');
-    gradient.addColorStop(1,'#f39b2f');
-    ctx.fillStyle = gradient;
-    ctx.strokeStyle = '#ffb43c';
-    ctx.lineWidth = 4;
-    ctx.beginPath();
-    ctx.arc(0,0,18,0,Math.PI*2);
-    ctx.fill();
-    ctx.stroke();
-    ctx.fillStyle = '#fff3aa';
-    ctx.font = '1000 17px Trebuchet MS, Arial';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('★',0,1);
-    ctx.restore();
-  }
-}
-
-function drawEnemy(enemy) {
-  if (!enemy.alive) return;
-  const x = enemy.x - state.cameraX;
-  const y = enemy.y + Math.sin(performance.now() * 0.004 + enemy.phase) * 3;
-  if (x < -90 || x > state.width / state.scale + 90) return;
-  ctx.save();
-  ctx.translate(x, y - 24);
-  ctx.shadowColor = 'rgba(49,37,103,.32)';
-  ctx.shadowBlur = 12;
-  ctx.shadowOffsetY = 7;
-  const base = enemy.type === 'puff' ? '#be72ee' : '#63d2ff';
-  const light = enemy.type === 'puff' ? '#e5a9ff' : '#a9ecff';
-  const dark = enemy.type === 'puff' ? '#7c3fb4' : '#2b84bd';
-  const gradient = ctx.createRadialGradient(-12,-15,3,0,0,33);
-  gradient.addColorStop(0,light);
-  gradient.addColorStop(.6,base);
-  gradient.addColorStop(1,dark);
-  ctx.fillStyle = gradient;
-  if (enemy.type === 'puff') {
-    for (let i=0;i<10;i++) {
-      const angle=i/10*Math.PI*2;
-      ctx.beginPath();
-      ctx.moveTo(Math.cos(angle)*22,Math.sin(angle)*22);
-      ctx.lineTo(Math.cos(angle)*34,Math.sin(angle)*34);
-      ctx.lineTo(Math.cos(angle+.18)*22,Math.sin(angle+.18)*22);
-      ctx.closePath();
-      ctx.fill();
-    }
-  } else {
-    ctx.fillStyle = dark;
-    ctx.fillRect(-3,-43,6,15);
-    ctx.beginPath();ctx.arc(0,-45,6,0,Math.PI*2);ctx.fill();
-    ctx.fillStyle = gradient;
-  }
-  ctx.beginPath();
-  ctx.arc(0,0,27,0,Math.PI*2);
-  ctx.fill();
-  ctx.strokeStyle = dark;
-  ctx.lineWidth = 3;
-  ctx.stroke();
-  ctx.shadowBlur = 0;
-  ctx.fillStyle = '#25254f';
-  ctx.beginPath();
-  ctx.arc(-8,-3,3.5,0,Math.PI*2);
-  ctx.arc(8,-3,3.5,0,Math.PI*2);
-  ctx.fill();
-  ctx.strokeStyle = '#25254f';
-  ctx.lineWidth = 2.5;
-  ctx.beginPath();
-  ctx.arc(0,6,7,0.15,Math.PI-.15);
-  ctx.stroke();
-  ctx.fillStyle = '#ff9eb9';
-  ctx.beginPath();
-  ctx.ellipse(-14,7,5,3,0,0,Math.PI*2);
-  ctx.ellipse(14,7,5,3,0,0,Math.PI*2);
-  ctx.fill();
-  ctx.restore();
-}
-
-function drawAstronautAt(x, y, mode='idle', facing=1, scale=1, tilt=0) {
-  const image = astronautImages[mode] || astronautImages.idle;
-  const w = player.w * scale;
-  const h = player.h * scale;
-  ctx.save();
-  ctx.translate(x + w/2, y + h/2);
-  ctx.rotate(tilt);
-  ctx.scale(facing,1);
-  ctx.shadowColor = 'rgba(21,18,63,.35)';
-  ctx.shadowBlur = 15;
-  ctx.shadowOffsetY = 8;
-  if (image.complete && image.naturalWidth) {
-    ctx.drawImage(image,-w/2,-h/2,w,h);
-  } else {
-    drawFallbackAstronaut(-w/2,-h/2,w,h);
-  }
-  ctx.restore();
-}
-
-function drawFallbackAstronaut(x,y,w,h) {
-  ctx.fillStyle='#fff';
-  ctx.strokeStyle='#41406b';
-  ctx.lineWidth=4;
-  roundedRect(x+w*.27,y+h*.42,w*.46,h*.48,w*.18);
-  ctx.fill();ctx.stroke();
-  ctx.beginPath();ctx.arc(x+w*.5,y+h*.28,w*.28,0,Math.PI*2);ctx.fill();ctx.stroke();
-  ctx.fillStyle='#8fdcff';ctx.beginPath();ctx.arc(x+w*.5,y+h*.28,w*.21,0,Math.PI*2);ctx.fill();
-  ctx.fillStyle='#ffe5d5';ctx.beginPath();ctx.arc(x+w*.5,y+h*.3,w*.15,0,Math.PI*2);ctx.fill();
-  ctx.fillStyle='#28254b';ctx.beginPath();ctx.arc(x+w*.45,y+h*.29,2.5,0,Math.PI*2);ctx.arc(x+w*.55,y+h*.29,2.5,0,Math.PI*2);ctx.fill();
-}
-
-function drawPlayer() {
-  const x = player.x - state.cameraX;
-  const y = player.y;
-  const moving = Math.abs(player.vx) > 0.45;
-  const mode = !player.onGround ? 'jump' : moving ? 'run' : 'idle';
-  const bounce = player.onGround && moving ? Math.sin(player.runPhase) * 2.5 : 0;
-  const tilt = !player.onGround ? clamp(player.vx * 0.012,-0.11,0.11) : 0;
-  const sx = 1 + player.squash * .04;
-  const sy = 1 - player.squash * .04;
-  ctx.save();
-  ctx.translate(x+player.w/2,y+player.h/2+bounce);
-  ctx.scale(sx,sy);
-  ctx.translate(-(x+player.w/2),-(y+player.h/2));
-  drawAstronautAt(x,y+bounce,mode,player.facing,1,tilt);
-  ctx.restore();
-}
-
-function drawParticles() {
-  for (const particle of state.particles) {
-    const x = particle.x - state.cameraX;
-    ctx.save();
-    ctx.globalAlpha = clamp(particle.life,0,1);
-    drawSparkle(x, particle.y, particle.size, particle.color);
-    ctx.restore();
-  }
 }
 
 function drawWorld() {
   ctx.save();
-  ctx.scale(state.scale,state.scale);
-  const viewportWorldWidth = state.width / state.scale;
-  ctx.fillStyle='rgba(255,255,255,.055)';
-  for (let x=0;x<world.width;x+=500) {
-    const sx=x-state.cameraX;
-    if (sx>-200 && sx<viewportWorldWidth+200) {
-      ctx.beginPath();
-      ctx.arc(sx,780,150,0,Math.PI*2);
-      ctx.fill();
-    }
-  }
-  drawStartSign();
+  ctx.scale(state.scale, state.scale);
+  ctx.translate(-state.cameraX, 0);
+  drawCloudFloor();
   drawPlatforms();
-  for (const project of projects) drawProjectPlanet(project);
   drawCoins();
-  for (const enemy of enemies) drawEnemy(enemy);
+  drawProjects();
+  drawEnemies();
+  drawFinishFlag();
   drawParticles();
   drawPlayer();
   ctx.restore();
 }
 
-function drawStartHero() {
-  const w = state.width;
-  const h = state.height;
-  const t = performance.now() * 0.001;
-
-  const items = [
-    { x:w*.18,y:h*.69,r:Math.min(w,h)*.105,colors:['#ffd87d','#ffb454','#ed8d35'],ring:'#ffe1a3' },
-    { x:w*.68,y:h*.62,r:Math.min(w,h)*.083,colors:['#ffc0dc','#ff90bb','#df5e99'],ring:'#ffd2c0' },
-    { x:w*.82,y:h*.78,r:Math.min(w,h)*.09,colors:['#9eead4','#58c8aa','#31927f'],ring:'#c9f6e8' }
-  ];
-
-  drawCloudShape(w*.12,h*.55,Math.min(190,w*.18),.96,true,false);
-  drawCloudShape(w*.86,h*.42,Math.min(180,w*.17),.96,true,false);
-  drawCloudShape(w*.72,h*.78,Math.min(220,w*.2),.95,false,false);
-  drawCloudShape(w*.24,h*.8,Math.min(230,w*.22),.95,false,false);
-
-  for (const item of items) drawHeroPlanet(item.x,item.y,item.r,item.colors,item.ring);
-
-  for (let i=0;i<5;i++) {
-    const cx = w*.72 + i*44;
-    const cy = h*.44 + Math.sin(t*2+i)*7 + i*18;
-    drawHeroCoin(cx,cy);
+function drawCloudFloor() {
+  const floorY = 840;
+  for (let x=-40;x<world.width+120;x+=150) {
+    const image = images.cloudSoft;
+    drawImageCentered(image, x, floorY + Math.sin(x * 0.01) * 4, 190, 102);
   }
-
-  const ax = w*.47 + Math.sin(t*.9)*12;
-  const ay = h*.55 + Math.sin(t*1.4)*8;
-  drawJumpTrail(ax-20,ay+90);
-  drawAstronautAt(ax-58,ay-64,'jump',1,1.25,-0.08);
-
-  drawHeroEnemy(w*.87,h*.62,'puff');
-  drawHeroEnemy(w*.12,h*.76,'blob');
+  const mist = ctx.createLinearGradient(0, 770, 0, 900);
+  mist.addColorStop(0, 'rgba(222,211,255,.08)');
+  mist.addColorStop(1, 'rgba(187,158,245,.32)');
+  ctx.fillStyle = mist;
+  ctx.fillRect(0, 770, world.width, 130);
 }
 
-function drawHeroPlanet(x,y,r,colors,ring) {
+function drawPlatforms() {
+  platforms.forEach(platform => {
+    const bob = Math.sin(performance.now() * 0.0013 + platform.phase) * 2.5;
+    const image = platform.type === 'wide' ? images.cloudWide : platform.type === 'happy' ? images.cloudHappy : images.cloudSoft;
+    const h = cloudHeight(platform);
+    drawImageCentered(image, platform.x, platform.y + bob, platform.w, h);
+  });
+}
+
+function drawCoins() {
+  coinData.forEach(coin => {
+    if (state.collected.has(coin.id)) return;
+    const y = coin.y + Math.sin(performance.now() * 0.003 + coin.phase) * 6;
+    drawImageCentered(images.coin, coin.x, y, 48, 48);
+  });
+}
+
+function drawProjects() {
+  projects.forEach(project => {
+    const bob = Math.sin(performance.now() * 0.0012 + project.phase) * 4;
+    const image = images[`planet-${project.id}`];
+    const size = project.radius * 2.5;
+    drawImageCentered(image, project.x, project.y + bob, size, size);
+    drawProjectBadge(project, bob);
+  });
+}
+
+function drawProjectBadge(project, bob) {
+  const badgeY = project.y + project.radius + 58 + bob;
   ctx.save();
-  ctx.translate(x,y);
-  ctx.rotate(-0.12);
-  ctx.strokeStyle=ring;
-  ctx.lineWidth=Math.max(8,r*.12);
-  ctx.beginPath();ctx.ellipse(0,0,r*1.3,r*.34,0,0,Math.PI*2);ctx.stroke();
-  ctx.rotate(0.12);
-  const g=ctx.createRadialGradient(-r*.35,-r*.35,r*.08,0,0,r);
-  g.addColorStop(0,colors[0]);g.addColorStop(.6,colors[1]);g.addColorStop(1,colors[2]);
-  ctx.fillStyle=g;ctx.strokeStyle='rgba(70,56,125,.7)';ctx.lineWidth=5;
-  ctx.beginPath();ctx.arc(0,0,r,0,Math.PI*2);ctx.fill();ctx.stroke();
-  drawCuteFace(r);
+  ctx.textAlign = 'center';
+  ctx.shadowColor = 'rgba(8,7,34,.32)';
+  ctx.shadowBlur = 14;
+  ctx.fillStyle = 'rgba(33,34,86,.9)';
+  ctx.strokeStyle = state.visited.has(project.id) ? '#ffd660' : 'rgba(204,199,255,.55)';
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.roundRect(project.x - 118, badgeY - 30, 236, 66, 18);
+  ctx.fill();
+  ctx.stroke();
+  ctx.shadowBlur = 0;
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '900 17px Trebuchet MS, Arial, sans-serif';
+  ctx.fillText(project.name, project.x, badgeY - 6);
+  ctx.fillStyle = '#dcd8f4';
+  ctx.font = '700 11px Trebuchet MS, Arial, sans-serif';
+  ctx.fillText(project.subtitle, project.x, badgeY + 14);
+  ctx.fillStyle = state.visited.has(project.id) ? '#ffd45d' : '#b9b5db';
+  ctx.font = '900 12px Trebuchet MS, Arial, sans-serif';
+  ctx.fillText(state.visited.has(project.id) ? `★ ${project.number} VISITED` : `PLANET ${project.number}`, project.x, badgeY + 31);
   ctx.restore();
 }
 
-function drawHeroCoin(x,y) {
-  ctx.save();ctx.translate(x,y);ctx.shadowColor='#ffc655';ctx.shadowBlur=18;
-  const g=ctx.createRadialGradient(-4,-5,2,0,0,16);g.addColorStop(0,'#fff4aa');g.addColorStop(.55,'#ffd45b');g.addColorStop(1,'#ef972e');
-  ctx.fillStyle=g;ctx.strokeStyle='#ffb13c';ctx.lineWidth=3;ctx.beginPath();ctx.arc(0,0,15,0,Math.PI*2);ctx.fill();ctx.stroke();
-  ctx.fillStyle='#fff3ae';ctx.font='1000 14px Trebuchet MS';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('★',0,1);ctx.restore();
+function drawEnemies() {
+  enemies.forEach(enemy => {
+    if (!enemy.alive) return;
+    const image = enemy.type === 'puff' ? images.puff : images.blob;
+    const bounce = Math.sin(performance.now() * 0.004 + enemy.phase) * 3;
+    drawImageCentered(image, enemy.x, enemy.y + bounce, 72, 72);
+  });
 }
 
-function drawHeroEnemy(x,y,type) {
+function drawFinishFlag() {
+  const finish = getPlatform('finish');
+  const surface = platformSurface(finish);
+  drawImageCentered(images.flag, finish.x + 25, surface - 108, 100, 122);
   ctx.save();
-  ctx.translate(x,y);
-  const base=type==='puff'?'#be72ee':'#63d2ff';
-  const light=type==='puff'?'#e6b0ff':'#b2efff';
-  const dark=type==='puff'?'#7d42b7':'#2b86bd';
-  const gradient=ctx.createRadialGradient(-11,-13,3,0,0,30);
-  gradient.addColorStop(0,light);gradient.addColorStop(.62,base);gradient.addColorStop(1,dark);
-  ctx.fillStyle=gradient;
-  if(type==='puff'){for(let i=0;i<10;i++){const a=i/10*Math.PI*2;ctx.beginPath();ctx.moveTo(Math.cos(a)*20,Math.sin(a)*20);ctx.lineTo(Math.cos(a)*31,Math.sin(a)*31);ctx.lineTo(Math.cos(a+.18)*20,Math.sin(a+.18)*20);ctx.closePath();ctx.fill()}}
-  else{ctx.fillStyle=dark;ctx.fillRect(-3,-40,6,14);ctx.beginPath();ctx.arc(0,-42,6,0,Math.PI*2);ctx.fill();ctx.fillStyle=gradient}
-  ctx.beginPath();ctx.arc(0,0,25,0,Math.PI*2);ctx.fill();ctx.strokeStyle=dark;ctx.lineWidth=3;ctx.stroke();
-  ctx.fillStyle='#25254f';ctx.beginPath();ctx.arc(-7,-3,3,0,Math.PI*2);ctx.arc(7,-3,3,0,Math.PI*2);ctx.fill();
-  ctx.strokeStyle='#25254f';ctx.lineWidth=2.5;ctx.beginPath();ctx.arc(0,5,7,.15,Math.PI-.15);ctx.stroke();
-  ctx.fillStyle='#ff9eb9';ctx.beginPath();ctx.ellipse(-13,6,5,3,0,0,Math.PI*2);ctx.ellipse(13,6,5,3,0,0,Math.PI*2);ctx.fill();
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#fff6d6';
+  ctx.font = '1000 16px Trebuchet MS, Arial, sans-serif';
+  ctx.fillText('FINISH', finish.x + 25, surface - 176);
   ctx.restore();
 }
 
-function drawJumpTrail(x,y) {
+function drawParticles() {
+  state.particles.forEach(particle => {
+    ctx.save();
+    ctx.globalAlpha = clamp(particle.life / particle.maxLife, 0, 1);
+    ctx.fillStyle = particle.color;
+    ctx.translate(particle.x, particle.y);
+    ctx.rotate(particle.life * 0.11);
+    ctx.beginPath();
+    const s = particle.size;
+    ctx.moveTo(0, -s * 1.8);
+    ctx.lineTo(s * 0.55, -s * 0.55);
+    ctx.lineTo(s * 1.8, 0);
+    ctx.lineTo(s * 0.55, s * 0.55);
+    ctx.lineTo(0, s * 1.8);
+    ctx.lineTo(-s * 0.55, s * 0.55);
+    ctx.lineTo(-s * 1.8, 0);
+    ctx.lineTo(-s * 0.55, -s * 0.55);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  });
+}
+
+function drawPlayer() {
+  let image = images.astronautIdle;
+  if (!player.onGround) image = player.vy < 1 ? images.astronautJump : images.astronautFall;
+  else if (player.landingTimer > 0) image = images.astronautLand;
+  else if (Math.abs(player.vx) > 0.7) image = images.astronautRun;
+
+  const bob = player.onGround && Math.abs(player.vx) > 0.7 ? Math.sin(player.runPhase) * 2.5 : 0;
+  const sx = player.facing;
+  const width = player.w * 1.44;
+  const height = player.h * 1.44;
+  const centerX = player.x + player.w * 0.5;
+  const centerY = player.y + player.h * 0.5 + bob;
+  const squashX = 1 + player.squash;
+  const squashY = 1 - player.squash * 0.55;
+
   ctx.save();
-  for (let i=0;i<12;i++) {
-    const px=x-i*10;
-    const py=y+i*7;
-    ctx.globalAlpha=(12-i)/18;
-    drawSparkle(px,py,3+(i%3),i%2?'#fff1a3':'#ffd05d');
-  }
+  ctx.translate(centerX, centerY);
+  ctx.scale(sx * squashX, squashY);
+  if (image && image.complete && image.naturalWidth > 0) ctx.drawImage(image, -width * 0.5, -height * 0.5, width, height);
+  ctx.restore();
+}
+
+function drawStartScene() {
+  drawSky();
+  const sw = state.width;
+  const sh = state.height;
+  const s = clamp(Math.min(sw / 1500, sh / 900), 0.72, 1.2);
+
+  ctx.save();
+  ctx.globalAlpha = 0.98;
+  drawImageCentered(images.cloudHappy, sw * 0.13, sh * 0.45, 220 * s, 118 * s);
+  drawImageCentered(images.cloudHappy, sw * 0.84, sh * 0.39, 205 * s, 110 * s);
+  drawImageCentered(images.cloudWide, sw * 0.25, sh * 0.78, 300 * s, 142 * s);
+  drawImageCentered(images.cloudWide, sw * 0.72, sh * 0.76, 310 * s, 146 * s);
+  drawImageCentered(images['planet-observer'], sw * 0.24, sh * 0.66, 220 * s, 220 * s);
+  drawImageCentered(images['planet-freshfood'], sw * 0.68, sh * 0.61, 205 * s, 205 * s);
+  drawImageCentered(images['planet-linkedin'], sw * 0.82, sh * 0.75, 190 * s, 190 * s);
+  drawImageCentered(images.astronautJump, sw * 0.49, sh * 0.57, 170 * s, 230 * s);
+  drawImageCentered(images.coin, sw * 0.63, sh * 0.44, 52 * s, 52 * s);
+  drawImageCentered(images.coin, sw * 0.69, sh * 0.47, 52 * s, 52 * s);
+  drawImageCentered(images.coin, sw * 0.74, sh * 0.51, 52 * s, 52 * s);
+  drawImageCentered(images.puff, sw * 0.87, sh * 0.59, 76 * s, 76 * s);
   ctx.restore();
 }
 
 function render() {
-  ctx.setTransform(state.dpr,0,0,state.dpr,0,0);
-  ctx.clearRect(0,0,state.width,state.height);
-  drawSky();
-  if (state.mode === 'start') drawStartHero();
-  else drawWorld();
+  ctx.setTransform(state.dpr, 0, 0, state.dpr, 0, 0);
+  ctx.clearRect(0, 0, state.width, state.height);
+  if (state.mode === 'start') drawStartScene();
+  else {
+    drawSky();
+    drawWorld();
+  }
 }
 
-function tick(now) {
-  const dt = clamp((now - state.lastFrame) / 16.6667, 0.5, 2.2);
+function frame() {
+  const now = performance.now();
+  const delta = Math.min(32, now - state.lastFrame);
   state.lastFrame = now;
+
   if (state.mode === 'playing') {
-    updatePlayer(dt);
+    updatePlayer(delta);
     updateCamera();
-    updateParticles(dt);
+    updateProjectPrompt();
+    updateParticles();
   }
   render();
-  requestAnimationFrame(tick);
+  requestAnimationFrame(frame);
 }
 
+addEventListener('resize', resize);
 seedDecor();
 resize();
-initializePlayer();
-loadGame();
-updateHud();
+initializeRun();
 setupInput();
-addEventListener('resize', resize);
-setInterval(() => {
-  if (state.mode === 'playing') saveGame();
-}, 3500);
-requestAnimationFrame(tick);
+frame();
