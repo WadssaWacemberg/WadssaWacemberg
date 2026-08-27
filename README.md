@@ -3,8 +3,24 @@
 <img src="./assets/icons/rocket.png" width="64" alt="WAI Rocket"/>
 
 <h1>WADSSA WACEMBERG</h1>
-
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=21&pause=900&color=FD5812&center=true&vCenter=true&width=840&height=52&lines=Computer+Science;Full+Stack+Developer;Software+Engineering+%E2%80%A2+Cloud+%E2%80%A2+AI;Three.js+%E2%80%A2+WebGPU+%E2%80%A2+Immersive+3D+Web" alt="Wadssa Wacemberg typing animation"/>
+</div>
+
+<img src="./assets/dividers/divider-neural.svg" width="100%" alt="Animated neural divider"/>
+
+> I build technology that transforms complex systems into understandable experiences for the people technology usually forgets.
+
+I'm a **Full Stack Developer and Computer Science student** building software across web applications, cloud infrastructure, intelligent systems and immersive 3D experiences.
+
+My work combines engineering, interaction and human-centered technology — from APIs and distributed systems to real-time telemetry and WebGL/WebGPU environments.
+
+
+## ◈ STACK
+
+<div align="center">
+  <img src="https://skillicons.dev/icons?i=ts,js,nodejs,nestjs,react,python,postgres,mysql,html,css,tailwind,git,docker,aws,threejs,cloudflare,workers,vercel,vscode,figma&perline=10&theme=dark" alt="Technology stack" />
+</div>
+
 
 `WAI // OBSERVER PROTOCOL`
 
@@ -58,25 +74,6 @@
 &nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://github.com/WadssaWacemberg?tab=repositories"><img src="./assets/icons/github.png" width="24" alt="GitHub"/> <sub><b>GitHub</b></sub></a>
 
-</div>
-
-<img src="./assets/dividers/divider-neural.svg" width="100%" alt="Animated neural divider"/>
-
-## ◈ OBSERVER // PROFILE
-
-> I build technology that transforms complex systems into understandable experiences for the people technology usually forgets.
-
-I'm a **Full Stack Developer and Computer Science student** building software across web applications, cloud infrastructure, intelligent systems and immersive 3D experiences.
-
-My work combines engineering, interaction and human-centered technology — from APIs and distributed systems to real-time telemetry and WebGL/WebGPU environments.
-
-<img src="./assets/dividers/divider-comet.svg" width="100%" alt="Animated comet divider"/>
-
-## ◈ ORBITAL STACK
-
-<div align="center">
-  <img src="https://skillicons.dev/icons?i=ts,js,nodejs,nestjs,react,python,postgres,mysql,html,css,tailwind,git,docker,aws,threejs,cloudflare,workers,vercel,vscode,figma&perline=10&theme=dark" alt="Technology stack" />
-</div>
 
 ### CORE
 TypeScript · JavaScript · Node.js · NestJS · React
