@@ -26,7 +26,7 @@ My work combines engineering, interaction and human-centered technology — from
 
 <br><br>
 
-<a href="https://wadssawacemberg.github.io/WadssaWacemberg/">
+<a href="https://wai-observer-3d-portfolio.wadssa.workers.dev/">
 <img src="./assets/hero/observer-hero.svg" width="100%" alt="WAI Observer live mission banner"/>
 </a>
 
